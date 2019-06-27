@@ -22,7 +22,7 @@ function speak (device, text, options) {
     ghnotifier.device(device.name, options.lang)
     ghnotifier.ip(device.ip_address)
     return new Promise((resolve, reject) => {
-      return ghnotifier.notify(text, (result) => {
+      return ghnotifier.play(text, (result) => {
         if (result === 'error') {
           reject(new Error(`Notification failed on device ${device.name}`))
         } else {
