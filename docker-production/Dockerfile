@@ -8,6 +8,8 @@ COPY avahi-daemon.conf /etc/avahi
 
 RUN git clone https://github.com/giejay/google-home-notification-gateway .
 
+RUN apk add python
+
 RUN npm install --only=production --build-from-source=bcrypt
 
 VOLUME /app/backend/storage
