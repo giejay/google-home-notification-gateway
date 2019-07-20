@@ -3,8 +3,6 @@ const Setting = require('../api/models/Setting')
 const Promise = require('bluebird')
 const axios = require('axios')
 
-
-
 function speak (device, text, options) {
   let promises = []
 
@@ -22,13 +20,23 @@ function speak (device, text, options) {
     ghnotifier.device(device.name, options.lang)
     ghnotifier.ip(device.ip_address)
     return new Promise((resolve, reject) => {
-      return ghnotifier.play(text, (result) => {
-        if (result === 'error') {
-          reject(new Error(`Notification failed on device ${device.name}`))
-        } else {
-          resolve()
-        }
-      })
+      if (text.indexOf('.mp3') >= 0) {
+        return ghnotifier.play(text, (result) => {
+          if (result === 'error') {
+            reject(new Error(`Notification failed on device ${device.name}`))
+          } else {
+            resolve()
+          }
+        })
+      } else {
+        return ghnotifier.notify(text, (result) => {
+          if (result === 'error') {
+            reject(new Error(`Notification failed on device ${device.name}`))
+          } else {
+            resolve()
+          }
+        })
+      }
     })
   })
 }
