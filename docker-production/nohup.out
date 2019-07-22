@@ -1426,3 +1426,147 @@ Removing intermediate container c75fc0beef76
  ---> 5ecd2ba73946
 Successfully built 5ecd2ba73946
 Successfully tagged giejay/google-home-gateway:latest
+Sending build context to Docker daemon  8.322MB
+Step 1/12 : FROM node:8-alpine
+ ---> 092097ad203c
+Step 2/12 : WORKDIR /app
+ ---> Using cache
+ ---> 7fba2873f282
+Step 3/12 : RUN  apk update && apk --no-cache add make g++ git openrc dbus avahi avahi-compat-libdns_sd avahi-dev
+ ---> Using cache
+ ---> 7fbf834fca96
+Step 4/12 : COPY avahi-daemon.conf /etc/avahi
+ ---> Using cache
+ ---> ee6dc93dac31
+Step 5/12 : RUN git clone https://github.com/giejay/google-home-notification-gateway .
+ ---> Using cache
+ ---> 528d1c066f3f
+Step 6/12 : RUN apk add python
+ ---> Using cache
+ ---> 721beca92e1a
+Step 7/12 : RUN npm install --only=production --build-from-source=bcrypt
+ ---> Using cache
+ ---> 4f29dfcb55f4
+Step 8/12 : VOLUME /app/backend/storage
+ ---> Using cache
+ ---> 06d005c66c59
+Step 9/12 : EXPOSE 3000
+ ---> Using cache
+ ---> afd25bf6ad8b
+Step 10/12 : COPY browser.js /app/node_modules/mdns/lib/browser.js
+ ---> Using cache
+ ---> ba92b3123385
+Step 11/12 : ADD public /app/public
+ ---> eecb289e7b5b
+Step 12/12 : CMD openrc boot && rc-service dbus start && rc-service avahi-daemon start && npm run start
+ ---> Running in 2379be4f8dac
+Removing intermediate container 2379be4f8dac
+ ---> 7f4e6c0c33c3
+Successfully built 7f4e6c0c33c3
+Successfully tagged giejay/google-home-gateway:latest
+unable to prepare context: unable to evaluate symlinks in Dockerfile path: lstat /home/pi/google-home-notification-gateway/docker-production/Dockerfile2: no such file or directory
+Sending build context to Docker daemon  8.327MB
+Step 1/3 : FROM marlburrow/ghng
+latest: Pulling from marlburrow/ghng
+605ce1bd3f31: Pulling fs layer
+0511902e1bcd: Pulling fs layer
+343e34c41f87: Pulling fs layer
+dcf2efe3f762: Pulling fs layer
+46e673ce41b1: Pulling fs layer
+ed511256bd5c: Pulling fs layer
+46e673ce41b1: Waiting
+dcf2efe3f762: Waiting
+ed511256bd5c: Waiting
+a0f3eea7da25: Pulling fs layer
+0fe68d17cd03: Pulling fs layer
+a0f3eea7da25: Waiting
+0fe68d17cd03: Waiting
+e27bc9375eb4: Pulling fs layer
+e27bc9375eb4: Waiting
+343e34c41f87: Verifying Checksum
+343e34c41f87: Download complete
+605ce1bd3f31: Download complete
+dcf2efe3f762: Verifying Checksum
+dcf2efe3f762: Download complete
+ed511256bd5c: Verifying Checksum
+ed511256bd5c: Download complete
+605ce1bd3f31: Pull complete
+0511902e1bcd: Verifying Checksum
+0511902e1bcd: Download complete
+a0f3eea7da25: Verifying Checksum
+a0f3eea7da25: Download complete
+0fe68d17cd03: Download complete
+e27bc9375eb4: Verifying Checksum
+e27bc9375eb4: Download complete
+0511902e1bcd: Pull complete
+46e673ce41b1: Verifying Checksum
+46e673ce41b1: Download complete
+343e34c41f87: Pull complete
+dcf2efe3f762: Pull complete
+46e673ce41b1: Pull complete
+ed511256bd5c: Pull complete
+a0f3eea7da25: Pull complete
+0fe68d17cd03: Pull complete
+e27bc9375eb4: Pull complete
+Digest: sha256:89efa56bd17b98ac9b3574e6e0b42f61a05f4486dbac4f181f9d348dda7ce339
+Status: Downloaded newer image for marlburrow/ghng:latest
+ ---> 6b4c5ad1dd8e
+Step 2/3 : COPY browser.js /app/node_modules/mdns/lib/browser.js
+ ---> f7d69c3e9bc6
+Step 3/3 : COPY notifier.js /app/backend/services/notifier.js
+ ---> 1c393c51f851
+Successfully built 1c393c51f851
+Successfully tagged giejay/google-home-gateway:dev
+Sending build context to Docker daemon  8.328MB
+Step 1/3 : FROM giejay/google-home-gateway:dev
+ ---> 5ecd2ba73946
+Step 2/3 : COPY browser.js /app/node_modules/mdns/lib/browser.js
+ ---> 4de2e2508c9b
+Step 3/3 : COPY notifier.js /app/backend/services/notifier.js
+failed to export image: failed to create image: failed to get layer sha256:eccf53d085361fff5d800734628db1c4c9503c220fc068abba5d54524e58cae1: layer does not exist
+Sending build context to Docker daemon  8.403MB
+Step 1/5 : FROM giejay/google-home-gateway:dev
+ ---> 5ecd2ba73946
+Step 2/5 : COPY browser.js /app/node_modules/mdns/lib/browser.js
+ ---> Using cache
+ ---> 4de2e2508c9b
+Step 3/5 : RUN rm -r /app/node_modules/google-tts-api
+ ---> Running in e03370e36121
+Removing intermediate container e03370e36121
+ ---> 2b1885348134
+Step 4/5 : ADD google-tts-api /app/node_modules/google-tts-api
+ ---> 3d5aaf985084
+Step 5/5 : COPY notifier.js /app/backend/services/notifier.js
+ ---> fd714bfc9d49
+Successfully built fd714bfc9d49
+Successfully tagged giejay/google-home-gateway:dev-v2
+Sending build context to Docker daemon  8.404MB
+Step 1/5 : FROM giejay/google-home-gateway:dev
+ ---> 5ecd2ba73946
+Step 2/5 : COPY browser.js /app/node_modules/mdns/lib/browser.js
+ ---> Using cache
+ ---> 4de2e2508c9b
+Step 3/5 : RUN rm -r /app/node_modules/google-tts-api
+ ---> Using cache
+ ---> 2b1885348134
+Step 4/5 : ADD google-tts-api /app/node_modules/google-tts-api
+ ---> 0ed96bcd16a0
+Step 5/5 : COPY notifier.js /app/backend/services/notifier.js
+ ---> fe775a0bab16
+Successfully built fe775a0bab16
+Successfully tagged giejay/google-home-gateway:dev-v2
+Sending build context to Docker daemon  8.407MB
+Step 1/5 : FROM giejay/google-home-gateway:dev
+ ---> 5ecd2ba73946
+Step 2/5 : COPY browser.js /app/node_modules/mdns/lib/browser.js
+ ---> Using cache
+ ---> 4de2e2508c9b
+Step 3/5 : RUN rm -r /app/node_modules/google-tts-api
+ ---> Using cache
+ ---> 2b1885348134
+Step 4/5 : ADD google-tts-api /app/node_modules/google-tts-api
+ ---> 0a9314debeec
+Step 5/5 : COPY notifier.js /app/backend/services/notifier.js
+ ---> 37769f1f2c4f
+Successfully built 37769f1f2c4f
+Successfully tagged giejay/google-home-gateway:dev-v2

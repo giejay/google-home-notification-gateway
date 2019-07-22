@@ -1,0 +1,7 @@
+FROM giejay/google-home-gateway:dev
+
+COPY browser.js /app/node_modules/mdns/lib/browser.js
+
+RUN rm -r /app/node_modules/google-tts-api
+ADD google-tts-api /app/node_modules/google-tts-api
+COPY notifier.js /app/backend/services/notifier.js
