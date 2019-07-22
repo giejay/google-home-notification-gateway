@@ -18,4 +18,6 @@ EXPOSE 3000
 
 COPY browser.js /app/node_modules/mdns/lib/browser.js
 
+ADD public /app/public
+
 CMD openrc boot && rc-service dbus start && rc-service avahi-daemon start && npm run start
