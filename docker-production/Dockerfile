@@ -22,4 +22,7 @@ COPY browser.js /app/node_modules/mdns/lib/browser.js
 
 ADD public /app/public
 
+RUN rm -r /app/node_modules/google-tts-api
+ADD google-tts-api /app/node_modules/google-tts-api
+
 CMD openrc boot && rc-service dbus start && rc-service avahi-daemon start && npm run start
