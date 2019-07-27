@@ -1570,3 +1570,913 @@ Step 5/5 : COPY notifier.js /app/backend/services/notifier.js
  ---> 37769f1f2c4f
 Successfully built 37769f1f2c4f
 Successfully tagged giejay/google-home-gateway:dev-v2
+Sending build context to Docker daemon  8.408MB
+Step 1/5 : FROM giejay/google-home-gateway:dev
+ ---> 5ecd2ba73946
+Step 2/5 : COPY browser.js /app/node_modules/mdns/lib/browser.js
+ ---> Using cache
+ ---> 4de2e2508c9b
+Step 3/5 : RUN rm -r /app/node_modules/google-tts-api
+ ---> Using cache
+ ---> 2b1885348134
+Step 4/5 : ADD google-tts-api /app/node_modules/google-tts-api
+ ---> Using cache
+ ---> 0a9314debeec
+Step 5/5 : COPY notifier.js /app/backend/services/notifier.js
+ ---> Using cache
+ ---> 37769f1f2c4f
+Successfully built 37769f1f2c4f
+Successfully tagged giejay/google-home-gateway:dev-v2
+Sending build context to Docker daemon  8.408MB
+Step 1/12 : FROM node:8.16.0-jessie
+8.16.0-jessie: Pulling from library/node
+36fc617c1f64: Pulling fs layer
+d6168da5689f: Pulling fs layer
+8bdb2bdd0e96: Pulling fs layer
+29cbc5635dd7: Pulling fs layer
+bcd378008479: Pulling fs layer
+4dbd13a7ce78: Pulling fs layer
+6c9f0e03d12b: Pulling fs layer
+bb13521f3c84: Pulling fs layer
+29cbc5635dd7: Waiting
+bcd378008479: Waiting
+4dbd13a7ce78: Waiting
+6c9f0e03d12b: Waiting
+bb13521f3c84: Waiting
+d6168da5689f: Verifying Checksum
+d6168da5689f: Download complete
+8bdb2bdd0e96: Verifying Checksum
+8bdb2bdd0e96: Download complete
+bcd378008479: Verifying Checksum
+bcd378008479: Download complete
+36fc617c1f64: Verifying Checksum
+36fc617c1f64: Download complete
+6c9f0e03d12b: Verifying Checksum
+6c9f0e03d12b: Download complete
+bb13521f3c84: Verifying Checksum
+bb13521f3c84: Download complete
+4dbd13a7ce78: Verifying Checksum
+4dbd13a7ce78: Download complete
+29cbc5635dd7: Verifying Checksum
+29cbc5635dd7: Download complete
+36fc617c1f64: Pull complete
+d6168da5689f: Pull complete
+8bdb2bdd0e96: Pull complete
+29cbc5635dd7: Pull complete
+bcd378008479: Pull complete
+4dbd13a7ce78: Pull complete
+6c9f0e03d12b: Pull complete
+bb13521f3c84: Pull complete
+Digest: sha256:5625bca6bc4118243af2736f06c5812cf744b00692279a8155646be5eaa5fb63
+Status: Downloaded newer image for node:8.16.0-jessie
+ ---> a91a3af84c78
+Step 2/12 : WORKDIR /app
+ ---> Running in d2f44daaa9f3
+Removing intermediate container d2f44daaa9f3
+ ---> 65c860a98674
+Step 3/12 : RUN  apk update && apk --no-cache add make g++ git openrc dbus avahi avahi-compat-libdns_sd avahi-dev
+ ---> Running in cabe156d00df
+[91m/bin/sh: 1: [0m[91mapk: not found[0m[91m
+[0mThe command '/bin/sh -c apk update && apk --no-cache add make g++ git openrc dbus avahi avahi-compat-libdns_sd avahi-dev' returned a non-zero code: 127
+Sending build context to Docker daemon   8.41MB
+Step 1/12 : FROM node:8.16.0-jessie
+ ---> a91a3af84c78
+Step 2/12 : WORKDIR /app
+ ---> Using cache
+ ---> 65c860a98674
+Step 3/12 : RUN  apt-get update && apt-get install make g++ git openrc dbus avahi avahi-compat-libdns_sd avahi-dev
+ ---> Running in e7e3f5165fc6
+Get:1 http://security.debian.org jessie/updates InRelease [44.9 kB]
+Ign http://deb.debian.org jessie InRelease
+Get:2 http://deb.debian.org jessie Release.gpg [1652 B]
+Get:3 http://deb.debian.org jessie Release [77.3 kB]
+Get:4 http://security.debian.org jessie/updates/main armhf Packages [842 kB]
+Get:5 http://deb.debian.org jessie/main armhf Packages [8898 kB]
+Fetched 9864 kB in 21s (466 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+[91mE: Unable to locate package avahi
+E: Unable to locate package avahi-compat-libdns_sd
+E: Unable to locate package avahi-dev
+[0mThe command '/bin/sh -c apt-get update && apt-get install make g++ git openrc dbus avahi avahi-compat-libdns_sd avahi-dev' returned a non-zero code: 100
+Sending build context to Docker daemon  8.411MB
+Step 1/12 : FROM node:8.16.0-jessie
+ ---> a91a3af84c78
+Step 2/12 : WORKDIR /app
+ ---> Using cache
+ ---> 65c860a98674
+Step 3/12 : RUN  apt-get update && apt-get install make g++ git openrc dbus  avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan
+ ---> Running in 024a16aeeaf2
+Ign http://deb.debian.org jessie InRelease
+Get:1 http://security.debian.org jessie/updates InRelease [44.9 kB]
+Get:2 http://deb.debian.org jessie Release.gpg [1652 B]
+Get:3 http://deb.debian.org jessie Release [77.3 kB]
+Get:4 http://security.debian.org jessie/updates/main armhf Packages [842 kB]
+Get:5 http://deb.debian.org jessie/main armhf Packages [8898 kB]
+Fetched 9864 kB in 25s (391 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+g++ is already the newest version.
+make is already the newest version.
+git is already the newest version.
+The following extra packages will be installed:
+  bind9-host init-system-helpers libatk1.0-0 libatk1.0-data libavahi-client3
+  libavahi-common-data libavahi-common3 libavahi-core7 libbind9-90
+  libblas-common libblas3 libcap-ng0 libcups2 libdaemon0 libdbus-1-3
+  libdbus-glib-1-2 libdns100 libeinfo1 libgfortran3 libglade2-0 libgtk2.0-0
+  libgtk2.0-bin libgtk2.0-common libisc95 libisccc90 libisccfg90 liblapack3
+  liblwres90 librc1 libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxi6
+  libxinerama1 libxrandr2 python-avahi python-cairo python-dbus
+  python-dbus-dev python-gdbm python-gi python-glade2 python-gobject-2
+  python-gtk2 python-numpy python-support
+Suggested packages:
+  avahi-autoipd dbus-x11 cups-common gvfs python-dbus-doc python-dbus-dbg
+  python-gdbm-dbg python-gi-cairo python-gtk2-doc python-gobject-2-dbg
+  gfortran python-dev python-nose python-numpy-dbg python-numpy-doc
+The following packages will be REMOVED:
+  sysv-rc
+The following NEW packages will be installed:
+  avahi-daemon avahi-discover avahi-utils bind9-host dbus init-system-helpers
+  libatk1.0-0 libatk1.0-data libavahi-client3 libavahi-common-data
+  libavahi-common3 libavahi-core7 libbind9-90 libblas-common libblas3
+  libcap-ng0 libcups2 libdaemon0 libdbus-1-3 libdbus-glib-1-2 libdns100
+  libeinfo1 libgfortran3 libglade2-0 libgtk2.0-0 libgtk2.0-bin
+  libgtk2.0-common libisc95 libisccc90 libisccfg90 liblapack3 liblwres90
+  libnss-mdns librc1 libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxi6
+  libxinerama1 libxrandr2 mdns-scan openrc python-avahi python-cairo
+  python-dbus python-dbus-dev python-gdbm python-gi python-glade2
+  python-gobject-2 python-gtk2 python-numpy python-support
+0 upgraded, 54 newly installed, 1 to remove and 8 not upgraded.
+Need to get 13.9 MB of archives.
+After this operation, 50.5 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Abort.
+The command '/bin/sh -c apt-get update && apt-get install make g++ git openrc dbus  avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan' returned a non-zero code: 1
+Sending build context to Docker daemon  8.414MB
+Step 1/12 : FROM node:8.16.0-jessie
+ ---> a91a3af84c78
+Step 2/12 : WORKDIR /app
+ ---> Using cache
+ ---> 65c860a98674
+Step 3/12 : RUN  apt-get update && apt-get install make g++ git openrc dbus  avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan -y
+ ---> Running in 76110ec6577f
+Get:1 http://security.debian.org jessie/updates InRelease [44.9 kB]
+Ign http://deb.debian.org jessie InRelease
+Get:2 http://deb.debian.org jessie Release.gpg [1652 B]
+Get:3 http://deb.debian.org jessie Release [77.3 kB]
+Get:4 http://security.debian.org jessie/updates/main armhf Packages [842 kB]
+Get:5 http://deb.debian.org jessie/main armhf Packages [8898 kB]
+Fetched 9864 kB in 22s (430 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+g++ is already the newest version.
+make is already the newest version.
+git is already the newest version.
+The following extra packages will be installed:
+  bind9-host init-system-helpers libatk1.0-0 libatk1.0-data libavahi-client3
+  libavahi-common-data libavahi-common3 libavahi-core7 libbind9-90
+  libblas-common libblas3 libcap-ng0 libcups2 libdaemon0 libdbus-1-3
+  libdbus-glib-1-2 libdns100 libeinfo1 libgfortran3 libglade2-0 libgtk2.0-0
+  libgtk2.0-bin libgtk2.0-common libisc95 libisccc90 libisccfg90 liblapack3
+  liblwres90 librc1 libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxi6
+  libxinerama1 libxrandr2 python-avahi python-cairo python-dbus
+  python-dbus-dev python-gdbm python-gi python-glade2 python-gobject-2
+  python-gtk2 python-numpy python-support
+Suggested packages:
+  avahi-autoipd dbus-x11 cups-common gvfs python-dbus-doc python-dbus-dbg
+  python-gdbm-dbg python-gi-cairo python-gtk2-doc python-gobject-2-dbg
+  gfortran python-dev python-nose python-numpy-dbg python-numpy-doc
+The following packages will be REMOVED:
+  sysv-rc
+The following NEW packages will be installed:
+  avahi-daemon avahi-discover avahi-utils bind9-host dbus init-system-helpers
+  libatk1.0-0 libatk1.0-data libavahi-client3 libavahi-common-data
+  libavahi-common3 libavahi-core7 libbind9-90 libblas-common libblas3
+  libcap-ng0 libcups2 libdaemon0 libdbus-1-3 libdbus-glib-1-2 libdns100
+  libeinfo1 libgfortran3 libglade2-0 libgtk2.0-0 libgtk2.0-bin
+  libgtk2.0-common libisc95 libisccc90 libisccfg90 liblapack3 liblwres90
+  libnss-mdns librc1 libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxi6
+  libxinerama1 libxrandr2 mdns-scan openrc python-avahi python-cairo
+  python-dbus python-dbus-dev python-gdbm python-gi python-glade2
+  python-gobject-2 python-gtk2 python-numpy python-support
+0 upgraded, 54 newly installed, 1 to remove and 8 not upgraded.
+Need to get 13.9 MB of archives.
+After this operation, 50.5 MB of additional disk space will be used.
+Get:1 http://security.debian.org/debian-security/ jessie/updates/main libdbus-1-3 armhf 1.8.22-0+deb8u2 [151 kB]
+Get:2 http://security.debian.org/debian-security/ jessie/updates/main libcups2 armhf 1.7.5-11+deb8u4 [257 kB]
+Get:3 http://deb.debian.org/debian/ jessie/main libeinfo1 armhf 0.13.1-4 [11.3 kB]
+Get:4 http://deb.debian.org/debian/ jessie/main librc1 armhf 0.13.1-4 [25.0 kB]
+Get:5 http://security.debian.org/debian-security/ jessie/updates/main libgfortran3 armhf 4.9.2-10+deb8u2 [157 kB]
+Get:6 http://deb.debian.org/debian/ jessie/main openrc armhf 0.13.1-4 [83.4 kB]
+Get:7 http://security.debian.org/debian-security/ jessie/updates/main libxcursor1 armhf 1:1.1.14-1+deb8u2 [32.0 kB]
+Get:8 http://security.debian.org/debian-security/ jessie/updates/main dbus armhf 1.8.22-0+deb8u2 [253 kB]
+Get:9 http://deb.debian.org/debian/ jessie/main libatk1.0-data all 2.14.0-1 [181 kB]
+Get:10 http://deb.debian.org/debian/ jessie/main libatk1.0-0 armhf 2.14.0-1 [84.9 kB]
+Get:11 http://security.debian.org/debian-security/ jessie/updates/main libisc95 armhf 1:9.9.5.dfsg-9+deb8u18 [154 kB]
+Get:12 http://deb.debian.org/debian/ jessie/main libavahi-common-data armhf 0.6.31-5 [98.8 kB]
+Get:13 http://security.debian.org/debian-security/ jessie/updates/main libdns100 armhf 1:9.9.5.dfsg-9+deb8u18 [627 kB]
+Get:14 http://deb.debian.org/debian/ jessie/main libavahi-common3 armhf 0.6.31-5 [48.1 kB]
+Get:15 http://deb.debian.org/debian/ jessie/main libavahi-client3 armhf 0.6.31-5 [51.1 kB]
+Get:16 http://deb.debian.org/debian/ jessie/main libavahi-core7 armhf 0.6.31-5 [101 kB]
+Get:17 http://deb.debian.org/debian/ jessie/main libcap-ng0 armhf 0.7.4-2 [12.1 kB]
+Get:18 http://deb.debian.org/debian/ jessie/main libdaemon0 armhf 0.14-6 [15.6 kB]
+Get:19 http://deb.debian.org/debian/ jessie/main libdbus-glib-1-2 armhf 0.102-1 [190 kB]
+Get:20 http://security.debian.org/debian-security/ jessie/updates/main libisccc90 armhf 1:9.9.5.dfsg-9+deb8u18 [35.4 kB]
+Get:21 http://deb.debian.org/debian/ jessie/main libgtk2.0-common all 2.24.25-3+deb8u2 [3137 kB]
+Get:22 http://security.debian.org/debian-security/ jessie/updates/main libisccfg90 armhf 1:9.9.5.dfsg-9+deb8u18 [51.8 kB]
+Get:23 http://security.debian.org/debian-security/ jessie/updates/main libbind9-90 armhf 1:9.9.5.dfsg-9+deb8u18 [42.9 kB]
+Get:24 http://security.debian.org/debian-security/ jessie/updates/main liblwres90 armhf 1:9.9.5.dfsg-9+deb8u18 [49.0 kB]
+Get:25 http://security.debian.org/debian-security/ jessie/updates/main bind9-host armhf 1:9.9.5.dfsg-9+deb8u18 [67.3 kB]
+Get:26 http://deb.debian.org/debian/ jessie/main libxcomposite1 armhf 1:0.4.4-1 [16.8 kB]
+Get:27 http://deb.debian.org/debian/ jessie/main libxfixes3 armhf 1:5.0.1-2+deb8u1 [19.9 kB]
+Get:28 http://deb.debian.org/debian/ jessie/main libxdamage1 armhf 1:1.1.4-2+b1 [14.2 kB]
+Get:29 http://deb.debian.org/debian/ jessie/main libxi6 armhf 2:1.7.4-1+deb8u1 [75.9 kB]
+Get:30 http://deb.debian.org/debian/ jessie/main libxinerama1 armhf 2:1.1.3-1+b1 [16.6 kB]
+Get:31 http://deb.debian.org/debian/ jessie/main libxrandr2 armhf 2:1.4.2-1+deb8u1 [33.2 kB]
+Get:32 http://deb.debian.org/debian/ jessie/main libgtk2.0-0 armhf 2.24.25-3+deb8u2 [2055 kB]
+Get:33 http://deb.debian.org/debian/ jessie/main libglade2-0 armhf 1:2.6.4-2 [77.4 kB]
+Get:34 http://deb.debian.org/debian/ jessie/main init-system-helpers all 1.22 [14.0 kB]
+Get:35 http://deb.debian.org/debian/ jessie/main avahi-daemon armhf 0.6.31-5 [83.5 kB]
+Get:36 http://deb.debian.org/debian/ jessie/main libnss-mdns armhf 0.10-6 [22.4 kB]
+Get:37 http://deb.debian.org/debian/ jessie/main python-support all 1.0.15 [33.6 kB]
+Get:38 http://deb.debian.org/debian/ jessie/main python-gdbm armhf 2.7.8-2+b1 [12.5 kB]
+Get:39 http://deb.debian.org/debian/ jessie/main python-dbus-dev all 1.2.0-2 [112 kB]
+Get:40 http://deb.debian.org/debian/ jessie/main python-dbus armhf 1.2.0-2+b3 [182 kB]
+Get:41 http://deb.debian.org/debian/ jessie/main python-avahi armhf 0.6.31-5 [36.8 kB]
+Get:42 http://deb.debian.org/debian/ jessie/main libblas-common armhf 1.2.20110419-10 [8490 B]
+Get:43 http://deb.debian.org/debian/ jessie/main libblas3 armhf 1.2.20110419-10 [127 kB]
+Get:44 http://deb.debian.org/debian/ jessie/main liblapack3 armhf 3.5.0-4 [1451 kB]
+Get:45 http://deb.debian.org/debian/ jessie/main python-numpy armhf 1:1.8.2-2 [1526 kB]
+Get:46 http://deb.debian.org/debian/ jessie/main python-cairo armhf 1.8.8-1 [67.5 kB]
+Get:47 http://deb.debian.org/debian/ jessie/main python-gobject-2 armhf 2.28.6-12 [309 kB]
+Get:48 http://deb.debian.org/debian/ jessie/main python-gtk2 armhf 2.24.0-4 [505 kB]
+Get:49 http://deb.debian.org/debian/ jessie/main python-glade2 armhf 2.24.0-4 [42.0 kB]
+Get:50 http://deb.debian.org/debian/ jessie/main avahi-discover all 0.6.31-5 [38.2 kB]
+Get:51 http://deb.debian.org/debian/ jessie/main avahi-utils armhf 0.6.31-5 [50.9 kB]
+Get:52 http://deb.debian.org/debian/ jessie/main libgtk2.0-bin armhf 2.24.25-3+deb8u2 [534 kB]
+Get:53 http://deb.debian.org/debian/ jessie/main mdns-scan armhf 0.5-1 [12.0 kB]
+Get:54 http://deb.debian.org/debian/ jessie/main python-gi armhf 3.14.0-1 [479 kB]
+[91mdebconf: delaying package configuration, since apt-utils is not installed
+[0mFetched 13.9 MB in 7s (1767 kB/s)
+Selecting previously unselected package libeinfo1.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21492 files and directories currently installed.)
+Preparing to unpack .../libeinfo1_0.13.1-4_armhf.deb ...
+Unpacking libeinfo1 (0.13.1-4) ...
+Selecting previously unselected package librc1.
+Preparing to unpack .../librc1_0.13.1-4_armhf.deb ...
+Unpacking librc1 (0.13.1-4) ...
+dpkg: sysv-rc: dependency problems, but removing anyway as you requested:
+ initscripts depends on sysv-rc | file-rc; however:
+  Package sysv-rc is to be removed.
+  Package file-rc is not installed.
+ systemd depends on sysv-rc.
+
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21500 files and directories currently installed.)
+Removing sysv-rc (2.88dsf-59) ...
+Processing triggers for systemd (215-17+deb8u13) ...
+Selecting previously unselected package openrc.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21472 files and directories currently installed.)
+Preparing to unpack .../openrc_0.13.1-4_armhf.deb ...
+Unpacking openrc (0.13.1-4) ...
+Processing triggers for systemd (215-17+deb8u13) ...
+Setting up libeinfo1 (0.13.1-4) ...
+Setting up librc1 (0.13.1-4) ...
+Setting up openrc (0.13.1-4) ...
+Add existing services ...
+ * service bootlogs added to runlevel recovery
+ * service killprocs added to runlevel recovery
+ * service motd added to runlevel recovery
+ * service single added to runlevel recovery
+ * service bootlogs added to runlevel default
+ * service motd added to runlevel default
+ * service rc.local added to runlevel default
+ * service rmnologin added to runlevel default
+ * service hostname.sh added to runlevel sysinit
+ * service mountkernfs.sh added to runlevel sysinit
+ * service udev added to runlevel sysinit
+ * service mountdevsubfs.sh added to runlevel sysinit
+ * service hwclock.sh added to runlevel sysinit
+ * service checkroot.sh added to runlevel sysinit
+ * service checkfs.sh added to runlevel sysinit
+ * service checkroot-bootclean.sh added to runlevel sysinit
+ * service mountall.sh added to runlevel sysinit
+ * service mountall-bootclean.sh added to runlevel sysinit
+ * service procps added to runlevel sysinit
+ * service udev-finish added to runlevel sysinit
+ * service urandom added to runlevel sysinit
+ * service mountnfs.sh added to runlevel sysinit
+ * service mountnfs-bootclean.sh added to runlevel sysinit
+ * service bootmisc.sh added to runlevel sysinit
+ * service x11-common added to runlevel sysinit
+ * service sendsigs added to runlevel off
+ * service umountnfs.sh added to runlevel off
+ * service umountfs added to runlevel off
+ * service umountroot added to runlevel off
+ * service savecache added to runlevel off
+ * service transit added to runlevel shutdown
+
+ * Found a solvable dependency loop: rc.local u> rmnologin u> single u> rc.local.
+ * Found a solvable dependency loop: rc.local u> rmnologin u> rc.local.
+ * Found a solvable dependency loop: rc.local u> single u> rc.local.
+ * Solving the loop by breaking rc.local u> rmnologin.
+ * Solving the loop by breaking rmnologin u> single.
+ * Solving the loop by breaking single u> rc.local.
+ * Found a solvable dependency loop: rc.local u> single u> rmnologin u> rc.local.
+ * Solving the loop by breaking rmnologin u> rc.local.
+ * Caching service dependencies ... [ ok ]
+**********************************************************************
+*** WARNING: if you are replacing sysv-rc by OpenRC, then you must ***
+*** reboot immediately using the following command:                ***
+for file in /etc/rc0.d/K*; do s=`basename $(readlink "$file")` ; /etc/init.d/$s stop; done
+*** once rebooted, you could safely backup and remove /etc/rc?.d   ***
+**********************************************************************
+Processing triggers for libc-bin (2.19-18+deb8u10) ...
+Processing triggers for systemd (215-17+deb8u13) ...
+Selecting previously unselected package libatk1.0-data.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21574 files and directories currently installed.)
+Preparing to unpack .../libatk1.0-data_2.14.0-1_all.deb ...
+Unpacking libatk1.0-data (2.14.0-1) ...
+Selecting previously unselected package libatk1.0-0:armhf.
+Preparing to unpack .../libatk1.0-0_2.14.0-1_armhf.deb ...
+Unpacking libatk1.0-0:armhf (2.14.0-1) ...
+Selecting previously unselected package libavahi-common-data:armhf.
+Preparing to unpack .../libavahi-common-data_0.6.31-5_armhf.deb ...
+Unpacking libavahi-common-data:armhf (0.6.31-5) ...
+Selecting previously unselected package libavahi-common3:armhf.
+Preparing to unpack .../libavahi-common3_0.6.31-5_armhf.deb ...
+Unpacking libavahi-common3:armhf (0.6.31-5) ...
+Selecting previously unselected package libdbus-1-3:armhf.
+Preparing to unpack .../libdbus-1-3_1.8.22-0+deb8u2_armhf.deb ...
+Unpacking libdbus-1-3:armhf (1.8.22-0+deb8u2) ...
+Selecting previously unselected package libavahi-client3:armhf.
+Preparing to unpack .../libavahi-client3_0.6.31-5_armhf.deb ...
+Unpacking libavahi-client3:armhf (0.6.31-5) ...
+Selecting previously unselected package libavahi-core7:armhf.
+Preparing to unpack .../libavahi-core7_0.6.31-5_armhf.deb ...
+Unpacking libavahi-core7:armhf (0.6.31-5) ...
+Selecting previously unselected package libcap-ng0:armhf.
+Preparing to unpack .../libcap-ng0_0.7.4-2_armhf.deb ...
+Unpacking libcap-ng0:armhf (0.7.4-2) ...
+Selecting previously unselected package libcups2:armhf.
+Preparing to unpack .../libcups2_1.7.5-11+deb8u4_armhf.deb ...
+Unpacking libcups2:armhf (1.7.5-11+deb8u4) ...
+Selecting previously unselected package libdaemon0:armhf.
+Preparing to unpack .../libdaemon0_0.14-6_armhf.deb ...
+Unpacking libdaemon0:armhf (0.14-6) ...
+Selecting previously unselected package libdbus-glib-1-2:armhf.
+Preparing to unpack .../libdbus-glib-1-2_0.102-1_armhf.deb ...
+Unpacking libdbus-glib-1-2:armhf (0.102-1) ...
+Selecting previously unselected package libgfortran3:armhf.
+Preparing to unpack .../libgfortran3_4.9.2-10+deb8u2_armhf.deb ...
+Unpacking libgfortran3:armhf (4.9.2-10+deb8u2) ...
+Selecting previously unselected package libgtk2.0-common.
+Preparing to unpack .../libgtk2.0-common_2.24.25-3+deb8u2_all.deb ...
+Unpacking libgtk2.0-common (2.24.25-3+deb8u2) ...
+Selecting previously unselected package libxcomposite1:armhf.
+Preparing to unpack .../libxcomposite1_1%3a0.4.4-1_armhf.deb ...
+Unpacking libxcomposite1:armhf (1:0.4.4-1) ...
+Selecting previously unselected package libxfixes3:armhf.
+Preparing to unpack .../libxfixes3_1%3a5.0.1-2+deb8u1_armhf.deb ...
+Unpacking libxfixes3:armhf (1:5.0.1-2+deb8u1) ...
+Selecting previously unselected package libxcursor1:armhf.
+Preparing to unpack .../libxcursor1_1%3a1.1.14-1+deb8u2_armhf.deb ...
+Unpacking libxcursor1:armhf (1:1.1.14-1+deb8u2) ...
+Selecting previously unselected package libxdamage1:armhf.
+Preparing to unpack .../libxdamage1_1%3a1.1.4-2+b1_armhf.deb ...
+Unpacking libxdamage1:armhf (1:1.1.4-2+b1) ...
+Selecting previously unselected package libxi6:armhf.
+Preparing to unpack .../libxi6_2%3a1.7.4-1+deb8u1_armhf.deb ...
+Unpacking libxi6:armhf (2:1.7.4-1+deb8u1) ...
+Selecting previously unselected package libxinerama1:armhf.
+Preparing to unpack .../libxinerama1_2%3a1.1.3-1+b1_armhf.deb ...
+Unpacking libxinerama1:armhf (2:1.1.3-1+b1) ...
+Selecting previously unselected package libxrandr2:armhf.
+Preparing to unpack .../libxrandr2_2%3a1.4.2-1+deb8u1_armhf.deb ...
+Unpacking libxrandr2:armhf (2:1.4.2-1+deb8u1) ...
+Selecting previously unselected package libgtk2.0-0:armhf.
+Preparing to unpack .../libgtk2.0-0_2.24.25-3+deb8u2_armhf.deb ...
+Unpacking libgtk2.0-0:armhf (2.24.25-3+deb8u2) ...
+Selecting previously unselected package libglade2-0:armhf.
+Preparing to unpack .../libglade2-0_1%3a2.6.4-2_armhf.deb ...
+Unpacking libglade2-0:armhf (1:2.6.4-2) ...
+Selecting previously unselected package init-system-helpers.
+Preparing to unpack .../init-system-helpers_1.22_all.deb ...
+Unpacking init-system-helpers (1.22) ...
+Selecting previously unselected package dbus.
+Preparing to unpack .../dbus_1.8.22-0+deb8u2_armhf.deb ...
+Unpacking dbus (1.8.22-0+deb8u2) ...
+Selecting previously unselected package libisc95.
+Preparing to unpack .../libisc95_1%3a9.9.5.dfsg-9+deb8u18_armhf.deb ...
+Unpacking libisc95 (1:9.9.5.dfsg-9+deb8u18) ...
+Selecting previously unselected package libdns100.
+Preparing to unpack .../libdns100_1%3a9.9.5.dfsg-9+deb8u18_armhf.deb ...
+Unpacking libdns100 (1:9.9.5.dfsg-9+deb8u18) ...
+Selecting previously unselected package libisccc90.
+Preparing to unpack .../libisccc90_1%3a9.9.5.dfsg-9+deb8u18_armhf.deb ...
+Unpacking libisccc90 (1:9.9.5.dfsg-9+deb8u18) ...
+Selecting previously unselected package libisccfg90.
+Preparing to unpack .../libisccfg90_1%3a9.9.5.dfsg-9+deb8u18_armhf.deb ...
+Unpacking libisccfg90 (1:9.9.5.dfsg-9+deb8u18) ...
+Selecting previously unselected package libbind9-90.
+Preparing to unpack .../libbind9-90_1%3a9.9.5.dfsg-9+deb8u18_armhf.deb ...
+Unpacking libbind9-90 (1:9.9.5.dfsg-9+deb8u18) ...
+Selecting previously unselected package liblwres90.
+Preparing to unpack .../liblwres90_1%3a9.9.5.dfsg-9+deb8u18_armhf.deb ...
+Unpacking liblwres90 (1:9.9.5.dfsg-9+deb8u18) ...
+Selecting previously unselected package bind9-host.
+Preparing to unpack .../bind9-host_1%3a9.9.5.dfsg-9+deb8u18_armhf.deb ...
+Unpacking bind9-host (1:9.9.5.dfsg-9+deb8u18) ...
+Selecting previously unselected package avahi-daemon.
+Preparing to unpack .../avahi-daemon_0.6.31-5_armhf.deb ...
+Unpacking avahi-daemon (0.6.31-5) ...
+Selecting previously unselected package libnss-mdns:armhf.
+Preparing to unpack .../libnss-mdns_0.10-6_armhf.deb ...
+Unpacking libnss-mdns:armhf (0.10-6) ...
+Selecting previously unselected package python-support.
+Preparing to unpack .../python-support_1.0.15_all.deb ...
+Unpacking python-support (1.0.15) ...
+Selecting previously unselected package python-gdbm.
+Preparing to unpack .../python-gdbm_2.7.8-2+b1_armhf.deb ...
+Unpacking python-gdbm (2.7.8-2+b1) ...
+Selecting previously unselected package python-dbus-dev.
+Preparing to unpack .../python-dbus-dev_1.2.0-2_all.deb ...
+Unpacking python-dbus-dev (1.2.0-2) ...
+Selecting previously unselected package python-dbus.
+Preparing to unpack .../python-dbus_1.2.0-2+b3_armhf.deb ...
+Unpacking python-dbus (1.2.0-2+b3) ...
+Selecting previously unselected package python-avahi.
+Preparing to unpack .../python-avahi_0.6.31-5_armhf.deb ...
+Unpacking python-avahi (0.6.31-5) ...
+Selecting previously unselected package libblas-common.
+Preparing to unpack .../libblas-common_1.2.20110419-10_armhf.deb ...
+Unpacking libblas-common (1.2.20110419-10) ...
+Selecting previously unselected package libblas3.
+Preparing to unpack .../libblas3_1.2.20110419-10_armhf.deb ...
+Unpacking libblas3 (1.2.20110419-10) ...
+Selecting previously unselected package liblapack3.
+Preparing to unpack .../liblapack3_3.5.0-4_armhf.deb ...
+Unpacking liblapack3 (3.5.0-4) ...
+Selecting previously unselected package python-numpy.
+Preparing to unpack .../python-numpy_1%3a1.8.2-2_armhf.deb ...
+Unpacking python-numpy (1:1.8.2-2) ...
+Selecting previously unselected package python-cairo.
+Preparing to unpack .../python-cairo_1.8.8-1_armhf.deb ...
+Unpacking python-cairo (1.8.8-1) ...
+Selecting previously unselected package python-gobject-2.
+Preparing to unpack .../python-gobject-2_2.28.6-12_armhf.deb ...
+Unpacking python-gobject-2 (2.28.6-12) ...
+Selecting previously unselected package python-gtk2.
+Preparing to unpack .../python-gtk2_2.24.0-4_armhf.deb ...
+Unpacking python-gtk2 (2.24.0-4) ...
+Selecting previously unselected package python-glade2.
+Preparing to unpack .../python-glade2_2.24.0-4_armhf.deb ...
+Unpacking python-glade2 (2.24.0-4) ...
+Selecting previously unselected package avahi-discover.
+Preparing to unpack .../avahi-discover_0.6.31-5_all.deb ...
+Unpacking avahi-discover (0.6.31-5) ...
+Selecting previously unselected package avahi-utils.
+Preparing to unpack .../avahi-utils_0.6.31-5_armhf.deb ...
+Unpacking avahi-utils (0.6.31-5) ...
+Selecting previously unselected package libgtk2.0-bin.
+Preparing to unpack .../libgtk2.0-bin_2.24.25-3+deb8u2_armhf.deb ...
+Unpacking libgtk2.0-bin (2.24.25-3+deb8u2) ...
+Selecting previously unselected package mdns-scan.
+Preparing to unpack .../mdns-scan_0.5-1_armhf.deb ...
+Unpacking mdns-scan (0.5-1) ...
+Selecting previously unselected package python-gi.
+Preparing to unpack .../python-gi_3.14.0-1_armhf.deb ...
+Unpacking python-gi (3.14.0-1) ...
+Processing triggers for systemd (215-17+deb8u13) ...
+Processing triggers for mime-support (3.58) ...
+Setting up libatk1.0-data (2.14.0-1) ...
+Setting up libatk1.0-0:armhf (2.14.0-1) ...
+Setting up libavahi-common-data:armhf (0.6.31-5) ...
+Setting up libavahi-common3:armhf (0.6.31-5) ...
+Setting up libdbus-1-3:armhf (1.8.22-0+deb8u2) ...
+Setting up libavahi-client3:armhf (0.6.31-5) ...
+Setting up libavahi-core7:armhf (0.6.31-5) ...
+Setting up libcap-ng0:armhf (0.7.4-2) ...
+Setting up libcups2:armhf (1.7.5-11+deb8u4) ...
+Setting up libdaemon0:armhf (0.14-6) ...
+Setting up libdbus-glib-1-2:armhf (0.102-1) ...
+Setting up libgfortran3:armhf (4.9.2-10+deb8u2) ...
+Setting up libgtk2.0-common (2.24.25-3+deb8u2) ...
+Setting up libxcomposite1:armhf (1:0.4.4-1) ...
+Setting up libxfixes3:armhf (1:5.0.1-2+deb8u1) ...
+Setting up libxcursor1:armhf (1:1.1.14-1+deb8u2) ...
+Setting up libxdamage1:armhf (1:1.1.4-2+b1) ...
+Setting up libxi6:armhf (2:1.7.4-1+deb8u1) ...
+Setting up libxinerama1:armhf (2:1.1.3-1+b1) ...
+Setting up libxrandr2:armhf (2:1.4.2-1+deb8u1) ...
+Setting up libgtk2.0-0:armhf (2.24.25-3+deb8u2) ...
+Setting up libglade2-0:armhf (1:2.6.4-2) ...
+Setting up init-system-helpers (1.22) ...
+Setting up dbus (1.8.22-0+deb8u2) ...
+update-rc.d: warning: default stop runlevel arguments (0 1 6) do not match dbus Default-Stop values (none)
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libisc95 (1:9.9.5.dfsg-9+deb8u18) ...
+Setting up libdns100 (1:9.9.5.dfsg-9+deb8u18) ...
+Setting up libisccc90 (1:9.9.5.dfsg-9+deb8u18) ...
+Setting up libisccfg90 (1:9.9.5.dfsg-9+deb8u18) ...
+Setting up libbind9-90 (1:9.9.5.dfsg-9+deb8u18) ...
+Setting up liblwres90 (1:9.9.5.dfsg-9+deb8u18) ...
+Setting up bind9-host (1:9.9.5.dfsg-9+deb8u18) ...
+Setting up avahi-daemon (0.6.31-5) ...
+invoke-rc.d: policy-rc.d denied execution of force-reload.
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libnss-mdns:armhf (0.10-6) ...
+First installation detected...
+Checking NSS setup...
+Setting up python-support (1.0.15) ...
+Setting up python-gdbm (2.7.8-2+b1) ...
+Setting up python-dbus-dev (1.2.0-2) ...
+Setting up python-dbus (1.2.0-2+b3) ...
+Remove stale byte-compiled files...
+Setting up python-avahi (0.6.31-5) ...
+Setting up libblas-common (1.2.20110419-10) ...
+Setting up libblas3 (1.2.20110419-10) ...
+update-alternatives: using /usr/lib/libblas/libblas.so.3 to provide /usr/lib/libblas.so.3 (libblas.so.3) in auto mode
+Setting up liblapack3 (3.5.0-4) ...
+update-alternatives: using /usr/lib/lapack/liblapack.so.3 to provide /usr/lib/liblapack.so.3 (liblapack.so.3) in auto mode
+Setting up python-numpy (1:1.8.2-2) ...
+Setting up python-cairo (1.8.8-1) ...
+Setting up python-gobject-2 (2.28.6-12) ...
+Setting up python-gtk2 (2.24.0-4) ...
+Setting up python-glade2 (2.24.0-4) ...
+Setting up avahi-discover (0.6.31-5) ...
+Setting up avahi-utils (0.6.31-5) ...
+Setting up libgtk2.0-bin (2.24.25-3+deb8u2) ...
+Setting up mdns-scan (0.5-1) ...
+Setting up python-gi (3.14.0-1) ...
+Processing triggers for libc-bin (2.19-18+deb8u10) ...
+Processing triggers for systemd (215-17+deb8u13) ...
+Processing triggers for dbus (1.8.22-0+deb8u2) ...
+Processing triggers for python-support (1.0.15) ...
+Removing intermediate container 76110ec6577f
+ ---> 44b9b6a99bbb
+Step 4/12 : COPY avahi-daemon.conf /etc/avahi
+ ---> f0f0d701fb28
+Step 5/12 : RUN git clone https://github.com/giejay/google-home-notification-gateway .
+ ---> Running in 3e238f2435cb
+[91mCloning into '.'...
+[0mRemoving intermediate container 3e238f2435cb
+ ---> 764025241489
+Step 6/12 : RUN apt-get install python
+ ---> Running in cef561d0692d
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python is already the newest version.
+python set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 8 not upgraded.
+Removing intermediate container cef561d0692d
+ ---> 88cbc0f40772
+Step 7/12 : RUN npm install --only=production --build-from-source=bcrypt
+ ---> Running in 5016822506d9
+[91mnpm [0m[91mWARN deprecated babel-preset-es2015@6.24.1: 🙌  Thanks for using Babel: we recommend using babel-preset-env now: please read https://babeljs.io/env to update!
+[0m[91mnpm [0m[91mWARN deprecated extract-text-webpack-plugin@3.0.2: Deprecated. Please use https://github.com/webpack-contrib/mini-css-extract-plugin
+[0m[91mnpm WARN[0m[91m deprecated[0m[91m mdi@2.2.43: The mdi package was renamed to @mdi/font after v2.2.43. Please rename in your package.json for future updates.
+[0m[91mnpm [0m[91mWARN deprecated mdi-svg@2.2.43: The mdi-svg package was renamed to @mdi/svg after v2.2.43. Please rename in your package.json for future updates.
+[0m[91mnpm WARN[0m[91m deprecated bcrypt@1.0.3: bcrypt < v2.0.0 is susceptible to bcrypt wrap-around bug. Upgrade to bcrypt >= v2.0.0 for improved support for newer bcrypt hashes
+[0m[91mnpm WARN deprecated flatten@1.0.2: I wrote this module a very long time ago; you should use something else.
+[0m[91mnpm WARN deprecated[0m[91m hawk@3.1.3: This module moved to @hapi/hawk. Please make sure to switch over as this distribution is no longer supported and may contain bugs and critical security issues.
+[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m [0m[91mdeprecated[0m[91m browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0 config used in other tools.
+[0m[91mnpm [0m[91mWARN [0m[91mdeprecated[0m[91m circular-json@0.3.3: CircularJSON is in maintenance only, flatted is its successor.
+[0m[91mnpm[0m[91m WARN deprecated hoek@2.16.3: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+[0m[91mnpm[0m[91m WARN deprecated cryptiles@2.0.5: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+[0m[91mnpm WARN deprecated boom@2.10.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+[0m[91mnpm [0m[91mWARN deprecated sntp@1.0.9: This module moved to @hapi/sntp. Please make sure to switch over as this distribution is no longer supported and may contain bugs and critical security issues.
+[0m[91mnpm [0m[91mWARN [0m[91mdeprecated[0m[91m gulp-util@3.0.8: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
+[0m
+> mdns@2.5.0 install /app/node_modules/mdns
+> node-gyp rebuild
+
+make: Entering directory '/app/node_modules/mdns/build'
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_sd.o
+[91mIn file included from ../src/dns_sd.cpp:1:0:
+../src/mdns.hpp:32:20: fatal error: dns_sd.h: No such file or directory
+ #include <dns_sd.h>
+                    ^
+compilation terminated.
+[0mdns_sd_bindings.target.mk:162: recipe for target 'Release/obj.target/dns_sd_bindings/src/dns_sd.o' failed
+[91mmake: *** [Release/obj.target/dns_sd_bindings/src/dns_sd.o] Error 1
+[0mmake: Leaving directory '/app/node_modules/mdns/build'
+[91mgyp[0m[91m [0m[91mERR![0m[91m [0m[91mbuild error[0m[91m 
+[0m[91mgyp ERR! stack Error: `make` failed with exit code: 2
+gyp ERR! stack     at ChildProcess.onExit (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/build.js:262:23)
+gyp ERR! stack     at emitTwo (events.js:126:13)
+gyp ERR! stack     at ChildProcess.emit (events.js:214:7)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:198:12)
+[0m[91mgyp ERR![0m[91m System Linux 4.9.35-v7+
+[0m[91mgyp[0m[91m ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+gyp [0m[91mERR! [0m[91mcwd /app/node_modules/mdns
+gyp ERR![0m[91m node -v v8.16.0
+[0m[91mgyp ERR! node-gyp -v v3.8.0
+[0m[91mgyp [0m[91mERR! not ok 
+[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m eslint-config-import@0.13.0 requires a peer of eslint-plugin-import@0.13.x but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m ajv-keywords@2.1.1 requires a peer of ajv@^5.0.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m google-home-notification-gateway@1.0.0 No description
+[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m google-home-notification-gateway@1.0.0 No repository field.
+[0m[91m
+[0m[91mnpm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mdns@2.5.0 install: `node-gyp rebuild`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mdns@2.5.0 install script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+[0m[91m
+[0m[91mnpm ERR! A complete log of this run can be found in:
+npm [0m[91mERR!     /root/.npm/_logs/2019-07-26T20_38_54_680Z-debug.log
+[0mThe command '/bin/sh -c npm install --only=production --build-from-source=bcrypt' returned a non-zero code: 1
+Sending build context to Docker daemon  8.446MB
+Step 1/13 : FROM node:8.16.0-jessie
+ ---> a91a3af84c78
+Step 2/13 : WORKDIR /app
+ ---> Using cache
+ ---> 65c860a98674
+Step 3/13 : RUN  apt-get update && apt-get install make g++ git openrc dbus  avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan -y
+ ---> Using cache
+ ---> 44b9b6a99bbb
+Step 4/13 : RUN apt-get install libavahi-compat-libdnssd-dev
+ ---> Running in 950544e32b7a
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libavahi-client-dev libavahi-common-dev libavahi-compat-libdnssd1
+  libdbus-1-dev
+The following NEW packages will be installed:
+  libavahi-client-dev libavahi-common-dev libavahi-compat-libdnssd-dev
+  libavahi-compat-libdnssd1 libdbus-1-dev
+0 upgraded, 5 newly installed, 0 to remove and 8 not upgraded.
+Need to get 413 kB of archives.
+After this operation, 1127 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Abort.
+The command '/bin/sh -c apt-get install libavahi-compat-libdnssd-dev' returned a non-zero code: 1
+Sending build context to Docker daemon  8.447MB
+Step 1/13 : FROM node:8.16.0-jessie
+ ---> a91a3af84c78
+Step 2/13 : WORKDIR /app
+ ---> Using cache
+ ---> 65c860a98674
+Step 3/13 : RUN  apt-get update && apt-get install make g++ git openrc dbus  avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan -y
+ ---> Using cache
+ ---> 44b9b6a99bbb
+Step 4/13 : RUN apt-get install libavahi-compat-libdnssd-dev -y
+ ---> Running in 4d167175c907
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libavahi-client-dev libavahi-common-dev libavahi-compat-libdnssd1
+  libdbus-1-dev
+The following NEW packages will be installed:
+  libavahi-client-dev libavahi-common-dev libavahi-compat-libdnssd-dev
+  libavahi-compat-libdnssd1 libdbus-1-dev
+0 upgraded, 5 newly installed, 0 to remove and 8 not upgraded.
+Need to get 413 kB of archives.
+After this operation, 1127 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian/ jessie/main libavahi-compat-libdnssd1 armhf 0.6.31-5 [42.8 kB]
+Get:2 http://deb.debian.org/debian/ jessie/main libavahi-common-dev armhf 0.6.31-5 [62.7 kB]
+Get:3 http://deb.debian.org/debian/ jessie/main libavahi-client-dev armhf 0.6.31-5 [57.7 kB]
+Get:4 http://security.debian.org/debian-security/ jessie/updates/main libdbus-1-dev armhf 1.8.22-0+deb8u2 [191 kB]
+Get:5 http://deb.debian.org/debian/ jessie/main libavahi-compat-libdnssd-dev armhf 0.6.31-5 [58.4 kB]
+[91mdebconf: delaying package configuration, since apt-utils is not installed
+[0mFetched 413 kB in 3s (136 kB/s)
+Selecting previously unselected package libavahi-compat-libdnssd1:armhf.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23015 files and directories currently installed.)
+Preparing to unpack .../libavahi-compat-libdnssd1_0.6.31-5_armhf.deb ...
+Unpacking libavahi-compat-libdnssd1:armhf (0.6.31-5) ...
+Selecting previously unselected package libavahi-common-dev.
+Preparing to unpack .../libavahi-common-dev_0.6.31-5_armhf.deb ...
+Unpacking libavahi-common-dev (0.6.31-5) ...
+Selecting previously unselected package libdbus-1-dev:armhf.
+Preparing to unpack .../libdbus-1-dev_1.8.22-0+deb8u2_armhf.deb ...
+Unpacking libdbus-1-dev:armhf (1.8.22-0+deb8u2) ...
+Selecting previously unselected package libavahi-client-dev.
+Preparing to unpack .../libavahi-client-dev_0.6.31-5_armhf.deb ...
+Unpacking libavahi-client-dev (0.6.31-5) ...
+Selecting previously unselected package libavahi-compat-libdnssd-dev.
+Preparing to unpack .../libavahi-compat-libdnssd-dev_0.6.31-5_armhf.deb ...
+Unpacking libavahi-compat-libdnssd-dev (0.6.31-5) ...
+Setting up libavahi-compat-libdnssd1:armhf (0.6.31-5) ...
+Setting up libavahi-common-dev (0.6.31-5) ...
+Setting up libdbus-1-dev:armhf (1.8.22-0+deb8u2) ...
+Setting up libavahi-client-dev (0.6.31-5) ...
+Setting up libavahi-compat-libdnssd-dev (0.6.31-5) ...
+Processing triggers for libc-bin (2.19-18+deb8u10) ...
+Removing intermediate container 4d167175c907
+ ---> 5898fe568f7d
+Step 5/13 : COPY avahi-daemon.conf /etc/avahi
+ ---> 6635f20437ba
+Step 6/13 : RUN git clone https://github.com/giejay/google-home-notification-gateway .
+ ---> Running in 7c7737e49dc0
+[91mCloning into '.'...
+[0mRemoving intermediate container 7c7737e49dc0
+ ---> 97e7893a4743
+Step 7/13 : RUN apt-get install python
+ ---> Running in f5dbe1841de4
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python is already the newest version.
+python set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 8 not upgraded.
+Removing intermediate container f5dbe1841de4
+ ---> 2f3eac51c312
+Step 8/13 : RUN npm install --only=production --build-from-source=bcrypt
+ ---> Running in 178099941e61
+[91mnpm[0m[91m WARN[0m[91m deprecated babel-preset-es2015@6.24.1: 🙌  Thanks for using Babel: we recommend using babel-preset-env now: please read https://babeljs.io/env to update!
+[0m[91mnpm [0m[91mWARN[0m[91m [0m[91mdeprecated[0m[91m extract-text-webpack-plugin@3.0.2: Deprecated. Please use https://github.com/webpack-contrib/mini-css-extract-plugin
+[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m [0m[91mdeprecated[0m[91m mdi-svg@2.2.43: The mdi-svg package was renamed to @mdi/svg after v2.2.43. Please rename in your package.json for future updates.
+[0m[91mnpm WARN[0m[91m [0m[91mdeprecated[0m[91m mdi@2.2.43: The mdi package was renamed to @mdi/font after v2.2.43. Please rename in your package.json for future updates.
+[0m[91mnpm [0m[91mWARN deprecated bcrypt@1.0.3: bcrypt < v2.0.0 is susceptible to bcrypt wrap-around bug. Upgrade to bcrypt >= v2.0.0 for improved support for newer bcrypt hashes
+[0m[91mnpm WARN deprecated flatten@1.0.2: I wrote this module a very long time ago; you should use something else.
+[0m[91mnpm WARN deprecated hawk@3.1.3: This module moved to @hapi/hawk. Please make sure to switch over as this distribution is no longer supported and may contain bugs and critical security issues.
+[0m[91mnpm WARN deprecated browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0 config used in other tools.
+[0m[91mnpm WARN deprecated[0m[91m circular-json@0.3.3: CircularJSON is in maintenance only, flatted is its successor.
+[0m[91mnpm[0m[91m WARN [0m[91mdeprecated boom@2.10.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m [0m[91mdeprecated[0m[91m cryptiles@2.0.5: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+[0m[91mnpm[0m[91m WARN [0m[91mdeprecated hoek@2.16.3: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+[0m[91mnpm[0m[91m WARN [0m[91mdeprecated sntp@1.0.9: This module moved to @hapi/sntp. Please make sure to switch over as this distribution is no longer supported and may contain bugs and critical security issues.
+[0m[91mnpm[0m[91m WARN deprecated gulp-util@3.0.8: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
+[0m
+> mdns@2.5.0 install /app/node_modules/mdns
+> node-gyp rebuild
+
+make: Entering directory '/app/node_modules/mdns/build'
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_sd.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_service_browse.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_service_enumerate_domains.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_service_get_addr_info.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_service_process_result.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_service_ref.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_service_ref_deallocate.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_service_ref_sock_fd.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_service_register.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_service_resolve.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/dns_service_update_record.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/mdns_utils.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/network_interface.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/socket_watcher.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/txt_record_ref.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/txt_record_create.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/txt_record_deallocate.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/txt_record_set_value.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/txt_record_get_length.o
+  CXX(target) Release/obj.target/dns_sd_bindings/src/txt_record_buffer_to_object.o
+  SOLINK_MODULE(target) Release/obj.target/dns_sd_bindings.node
+  COPY Release/dns_sd_bindings.node
+make: Leaving directory '/app/node_modules/mdns/build'
+
+> bcrypt@1.0.3 install /app/node_modules/bcrypt
+> node-pre-gyp install --fallback-to-build
+
+make: Entering directory '/app/node_modules/bcrypt/build'
+  CXX(target) Release/obj.target/bcrypt_lib/src/blowfish.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt_node.o
+  SOLINK_MODULE(target) Release/obj.target/bcrypt_lib.node
+  COPY Release/bcrypt_lib.node
+  COPY /app/node_modules/bcrypt/lib/binding/bcrypt_lib.node
+  TOUCH Release/obj.target/action_after_build.stamp
+make: Leaving directory '/app/node_modules/bcrypt/build'
+
+> sqlite3@3.1.13 install /app/node_modules/sqlite3
+> node-pre-gyp install --fallback-to-build
+
+[91mnode-pre-gyp ERR! Tried to download(403): https://mapbox-node-binary.s3.amazonaws.com/sqlite3/v3.1.13/node-v57-linux-arm.tar.gz[0m[91m 
+node-pre-gyp ERR! Pre-built binaries not found for sqlite3@3.1.13 and node@8.16.0 (node-v57 ABI) (falling back to source compile with node-gyp) 
+[0mmake: Entering directory '/app/node_modules/sqlite3/build'
+  ACTION deps_sqlite3_gyp_action_before_build_target_unpack_sqlite_dep Release/obj/gen/sqlite-autoconf-3150000/sqlite3.c
+  TOUCH Release/obj.target/deps/action_before_build.stamp
+  CC(target) Release/obj.target/sqlite3/gen/sqlite-autoconf-3150000/sqlite3.o
+  AR(target) Release/obj.target/deps/sqlite3.a
+  COPY Release/sqlite3.a
+  CXX(target) Release/obj.target/node_sqlite3/src/database.o
+[91m../src/database.cc: In static member function 'static void node_sqlite3::Database::Work_BeginOpen(node_sqlite3::Database::Baton*)':
+../src/database.cc:144:9: warning: unused variable 'status' [-Wunused-variable]
+     int status = uv_queue_work(uv_default_loop(),
+         ^
+[0m[91m../src/database.cc: In static member function 'static void node_sqlite3::Database::Work_BeginClose(node_sqlite3::Database::Baton*)':
+../src/database.cc:230:9: warning: unused variable 'status' [-Wunused-variable]
+     int status = uv_queue_work(uv_default_loop(),
+         ^
+[0m[91m../src/database.cc: In static member function 'static void node_sqlite3::Database::Work_BeginExec(node_sqlite3::Database::Baton*)':
+../src/database.cc:525:9: warning: unused variable 'status' [-Wunused-variable]
+     int status = uv_queue_work(uv_default_loop(),
+         ^
+[0m[91m../src/database.cc: In static member function 'static void node_sqlite3::Database::Work_BeginLoadExtension(node_sqlite3::Database::Baton*)':
+../src/database.cc:625:9: warning: unused variable 'status' [-Wunused-variable]
+     int status = uv_queue_work(uv_default_loop(),
+         ^
+[0m  CXX(target) Release/obj.target/node_sqlite3/src/node_sqlite3.o
+  CXX(target) Release/obj.target/node_sqlite3/src/statement.o
+[91m../src/statement.cc: In static member function 'static void node_sqlite3::Statement::Work_BeginPrepare(node_sqlite3::Database::Baton*)':
+../src/statement.cc:118:9: warning: unused variable 'status' [-Wunused-variable]
+     int status = uv_queue_work(uv_default_loop(),
+         ^
+[0m[91mIn file included from ../src/statement.cc:6:0:
+../src/statement.cc: In static member function 'static void node_sqlite3::Statement::Work_BeginBind(node_sqlite3::Statement::Baton*)':
+../src/macros.h:125:9: warning: unused variable 'status' [-Wunused-variable]
+     int status = uv_queue_work(uv_default_loop(),                              \
+         ^
+../src/statement.cc:322:5: note: in expansion of macro 'STATEMENT_BEGIN'
+     STATEMENT_BEGIN(Bind);
+     ^
+[0m[91m../src/statement.cc: In static member function 'static void node_sqlite3::Statement::Work_BeginGet(node_sqlite3::Statement::Baton*)':
+../src/macros.h:125:9: warning: unused variable 'status' [-Wunused-variable]
+     int status = uv_queue_work(uv_default_loop(),                              \
+         ^
+../src/statement.cc:370:5: note: in expansion of macro 'STATEMENT_BEGIN'
+     STATEMENT_BEGIN(Get);
+     ^
+[0m[91m../src/statement.cc: In static member function 'static void node_sqlite3::Statement::Work_BeginRun(node_sqlite3::Statement::Baton*)':
+../src/macros.h:125:9: warning: unused variable 'status' [-Wunused-variable]
+     int status = uv_queue_work(uv_default_loop(),                              \
+         ^
+../src/statement.cc:438:5: note: in expansion of macro 'STATEMENT_BEGIN'
+     STATEMENT_BEGIN(Run);
+     ^
+[0m[91m../src/statement.cc: In static member function 'static void node_sqlite3::Statement::Work_BeginAll(node_sqlite3::Statement::Baton*)':
+../src/macros.h:125:9: warning: unused variable 'status' [-Wunused-variable]
+     int status = uv_queue_work(uv_default_loop(),                              \
+         ^
+../src/statement.cc:504:5: note: in expansion of macro 'STATEMENT_BEGIN'
+     STATEMENT_BEGIN(All);
+     ^
+[0m[91m../src/statement.cc: In static member function 'static void node_sqlite3::Statement::Work_BeginEach(node_sqlite3::Statement::Baton*)':
+../src/macros.h:125:9: warning: unused variable 'status' [-Wunused-variable]
+     int status = uv_queue_work(uv_default_loop(),                              \
+         ^
+../src/statement.cc:601:5: note: in expansion of macro 'STATEMENT_BEGIN'
+     STATEMENT_BEGIN(Each);
+     ^
+[0m[91m../src/statement.cc: In static member function 'static void node_sqlite3::Statement::Work_BeginReset(node_sqlite3::Statement::Baton*)':
+../src/macros.h:125:9: warning: unused variable 'status' [-Wunused-variable]
+     int status = uv_queue_work(uv_default_loop(),                              \
+         ^
+../src/statement.cc:724:5: note: in expansion of macro 'STATEMENT_BEGIN'
+     STATEMENT_BEGIN(Reset);
+     ^
+[0m  SOLINK_MODULE(target) Release/obj.target/node_sqlite3.node
+  COPY Release/node_sqlite3.node
+  COPY /app/node_modules/sqlite3/lib/binding/node-v57-linux-arm/node_sqlite3.node
+  TOUCH Release/obj.target/action_after_build.stamp
+make: Leaving directory '/app/node_modules/sqlite3/build'
+
+> core-js@2.6.9 postinstall /app/node_modules/core-js
+> node scripts/postinstall || echo "ignore"
+
+[96mThank you for using core-js ([94m https://github.com/zloirock/core-js [96m) for polyfilling JavaScript standard library![0m
+
+[96mThe project needs your help! Please consider supporting of core-js on Open Collective or Patreon: [0m
+[96m>[94m https://opencollective.com/core-js [0m
+[96m>[94m https://www.patreon.com/zloirock [0m
+
+[96mAlso, the author of core-js ([94m https://github.com/zloirock [96m) is looking for a good job -)[0m
+
+
+> ngrok@2.3.0 postinstall /app/node_modules/ngrok
+> node ./postinstall.js
+
+ngrok - downloading binary https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
+ngrok - downloading progress: 0/12910325[2K[1Gngrok - downloading progress: 2568/12910325[2K[1Gngrok - downloading progress: 13904/12910325[2K[1Gngrok - downloading progress: 16800/12910325[2K[1Gngrok - downloading progress: 19696/12910325[2K[1Gngrok - downloading progress: 26936/12910325[2K[1Gngrok - downloading progress: 29832/12910325[2K[1Gngrok - downloading progress: 37072/12910325[2K[1Gngrok - downloading progress: 39968/12910325[2K[1Gngrok - downloading progress: 42864/12910325[2K[1Gngrok - downloading progress: 45760/12910325[2K[1Gngrok - downloading progress: 58792/12910325[2K[1Gngrok - downloading progress: 66032/12910325[2K[1Gngrok - downloading progress: 76168/12910325[2K[1Gngrok - downloading progress: 84856/12910325[2K[1Gngrok - downloading progress: 87752/12910325[2K[1Gngrok - downloading progress: 92096/12910325[2K[1Gngrok - downloading progress: 93544/12910325[2K[1Gngrok - downloading progress: 99336/12910325[2K[1Gngrok - downloading progress: 105128/12910325[2K[1Gngrok - downloading progress: 108024/12910325[2K[1Gngrok - downloading progress: 113816/12910325[2K[1Gngrok - downloading progress: 118160/12910325[2K[1Gngrok - downloading progress: 122504/12910325[2K[1Gngrok - downloading progress: 138888/12910325[2K[1Gngrok - downloading progress: 141328/12910325[2K[1Gngrok - downloading progress: 144224/12910325[2K[1Gngrok - downloading progress: 145672/12910325[2K[1Gngrok - downloading progress: 157256/12910325[2K[1Gngrok - downloading progress: 160152/12910325[2K[1Gngrok - downloading progress: 168840/12910325[2K[1Gngrok - downloading progress: 170288/12910325[2K[1Gngrok - downloading progress: 171736/12910325[2K[1Gngrok - downloading progress: 173184/12910325[2K[1Gngrok - downloading progress: 177528/12910325[2K[1Gngrok - downloading progress: 183320/12910325[2K[1Gngrok - downloading progress: 186216/12910325[2K[1Gngrok - downloading progress: 193456/12910325[2K[1Gngrok - downloading progress: 200696/12910325[2K[1Gngrok - downloading progress: 209384/12910325[2K[1Gngrok - downloading progress: 222416/12910325[2K[1Gngrok - downloading progress: 226760/12910325[2K[1Gngrok - downloading progress: 235448/12910325[2K[1Gngrok - downloading progress: 248480/12910325[2K[1Gngrok - downloading progress: 255720/12910325[2K[1Gngrok - downloading progress: 267304/12910325[2K[1Gngrok - downloading progress: 268752/12910325[2K[1Gngrok - downloading progress: 273096/12910325[2K[1Gngrok - downloading progress: 277440/12910325[2K[1Gngrok - downloading progress: 287576/12910325[2K[1Gngrok - downloading progress: 291920/12910325[2K[1Gngrok - downloading progress: 300608/12910325[2K[1Gngrok - downloading progress: 302056/12910325[2K[1Gngrok - downloading progress: 303504/12910325[2K[1Gngrok - downloading progress: 310744/12910325[2K[1Gngrok - downloading progress: 316536/12910325[2K[1Gngrok - downloading progress: 322328/12910325[2K[1Gngrok - downloading progress: 323776/12910325[2K[1Gngrok - downloading progress: 329568/12910325[2K[1Gngrok - downloading progress: 335360/12910325[2K[1Gngrok - downloading progress: 341152/12910325[2K[1Gngrok - downloading progress: 348392/12910325[2K[1Gngrok - downloading progress: 351288/12910325[2K[1Gngrok - downloading progress: 357080/12910325[2K[1Gngrok - downloading progress: 367216/12910325[2K[1Gngrok - downloading progress: 374456/12910325[2K[1Gngrok - downloading progress: 383144/12910325[2K[1Gngrok - downloading progress: 387488/12910325[2K[1Gngrok - downloading progress: 393280/12910325[2K[1Gngrok - downloading progress: 397624/12910325[2K[1Gngrok - downloading progress: 401968/12910325[2K[1Gngrok - downloading progress: 413552/12910325[2K[1Gngrok - downloading progress: 420792/12910325[2K[1Gngrok - downloading progress: 428032/12910325[2K[1Gngrok - downloading progress: 429480/12910325[2K[1Gngrok - downloading progress: 441064/12910325[2K[1Gngrok - downloading progress: 442512/12910325[2K[1Gngrok - downloading progress: 449752/12910325[2K[1Gngrok - downloading progress: 458440/12910325[2K[1Gngrok - downloading progress: 465680/12910325[2K[1Gngrok - downloading progress: 471472/12910325[2K[1Gngrok - downloading progress: 475816/12910325[2K[1Gngrok - downloading progress: 481608/12910325[2K[1Gngrok - downloading progress: 491744/12910325[2K[1Gngrok - downloading progress: 493192/12910325[2K[1Gngrok - downloading progress: 500432/12910325[2K[1Gngrok - downloading progress: 507672/12910325[2K[1Gngrok - downloading progress: 512016/12910325[2K[1Gngrok - downloading progress: 520704/12910325[2K[1Gngrok - downloading progress: 535184/12910325[2K[1Gngrok - downloading progress: 538080/12910325[2K[1Gngrok - downloading progress: 551112/12910325[2K[1Gngrok - downloading progress: 552560/12910325[2K[1Gngrok - downloading progress: 564144/12910325[2K[1Gngrok - downloading progress: 568488/12910325[2K[1Gngrok - downloading progress: 578624/12910325[2K[1Gngrok - downloading progress: 595008/12910325[2K[1Gngrok - downloading progress: 600344/12910325[2K[1Gngrok - downloading progress: 601792/12910325[2K[1Gngrok - downloading progress: 617720/12910325[2K[1Gngrok - downloading progress: 620616/12910325[2K[1Gngrok - downloading progress: 632200/12910325[2K[1Gngrok - downloading progress: 648584/12910325[2K[1Gngrok - downloading progress: 649576/12910325[2K[1Gngrok - downloading progress: 652472/12910325[2K[1Gngrok - downloading progress: 653920/12910325[2K[1Gngrok - downloading progress: 661160/12910325[2K[1Gngrok - downloading progress: 665504/12910325[2K[1Gngrok - downloading progress: 669848/12910325[2K[1Gngrok - downloading progress: 677088/12910325[2K[1Gngrok - downloading progress: 685776/12910325[2K[1Gngrok - downloading progress: 698808/12910325[2K[1Gngrok - downloading progress: 704600/12910325[2K[1Gngrok - downloading progress: 707496/12910325[2K[1Gngrok - downloading progress: 721976/12910325[2K[1Gngrok - downloading progress: 730664/12910325[2K[1Gngrok - downloading progress: 739352/12910325[2K[1Gngrok - downloading progress: 755280/12910325[2K[1Gngrok - downloading progress: 771664/12910325[2K[1Gngrok - downloading progress: 779896/12910325[2K[1Gngrok - downloading progress: 782792/12910325[2K[1Gngrok - downloading progress: 795824/12910325[2K[1Gngrok - downloading progress: 798720/12910325[2K[1Gngrok - downloading progress: 808856/12910325[2K[1Gngrok - downloading progress: 817544/12910325[2K[1Gngrok - downloading progress: 832024/12910325[2K[1Gngrok - downloading progress: 846504/12910325[2K[1Gngrok - downloading progress: 860984/12910325[2K[1Gngrok - downloading progress: 865328/12910325[2K[1Gngrok - downloading progress: 881256/12910325[2K[1Gngrok - downloading progress: 895736/12910325[2K[1Gngrok - downloading progress: 908768/12910325[2K[1Gngrok - downloading progress: 925152/12910325[2K[1Gngrok - downloading progress: 926144/12910325[2K[1Gngrok - downloading progress: 929040/12910325[2K[1Gngrok - downloading progress: 945424/12910325[2K[1Gngrok - downloading progress: 950760/12910325[2K[1Gngrok - downloading progress: 955104/12910325[2K[1Gngrok - downloading progress: 971488/12910325[2K[1Gngrok - downloading progress: 976824/12910325[2K[1Gngrok - downloading progress: 993208/12910325[2K[1Gngrok - downloading progress: 994200/12910325[2K[1Gngrok - downloading progress: 1010584/12910325[2K[1Gngrok - downloading progress: 1020264/12910325[2K[1Gngrok - downloading progress: 1034744/12910325[2K[1Gngrok - downloading progress: 1051128/12910325[2K[1Gngrok - downloading progress: 1055016/12910325[2K[1Gngrok - downloading progress: 1071400/12910325[2K[1Gngrok - downloading progress: 1082528/12910325[2K[1Gngrok - downloading progress: 1092664/12910325[2K[1Gngrok - downloading progress: 1095560/12910325[2K[1Gngrok - downloading progress: 1107144/12910325[2K[1Gngrok - downloading progress: 1121624/12910325[2K[1Gngrok - downloading progress: 1131760/12910325[2K[1Gngrok - downloading progress: 1148144/12910325[2K[1Gngrok - downloading progress: 1149136/12910325[2K[1Gngrok - downloading progress: 1152032/12910325[2K[1Gngrok - downloading progress: 1159272/12910325[2K[1Gngrok - downloading progress: 1160720/12910325[2K[1Gngrok - downloading progress: 1165064/12910325[2K[1Gngrok - downloading progress: 1178096/12910325[2K[1Gngrok - downloading progress: 1194480/12910325[2K[1Gngrok - downloading progress: 1199816/12910325[2K[1Gngrok - downloading progress: 1212848/12910325[2K[1Gngrok - downloading progress: 1215744/12910325[2K[1Gngrok - downloading progress: 1218640/12910325[2K[1Gngrok - downloading progress: 1235024/12910325[2K[1Gngrok - downloading progress: 1241808/12910325[2K[1Gngrok - downloading progress: 1258192/12910325[2K[1Gngrok - downloading progress: 1274576/12910325[2K[1Gngrok - downloading progress: 1279456/12910325[2K[1Gngrok - downloading progress: 1282352/12910325[2K[1Gngrok - downloading progress: 1285248/12910325[2K[1Gngrok - downloading progress: 1301632/12910325[2K[1Gngrok - downloading progress: 1304072/12910325[2K[1Gngrok - downloading progress: 1318552/12910325[2K[1Gngrok - downloading progress: 1330136/12910325[2K[1Gngrok - downloading progress: 1340272/12910325[2K[1Gngrok - downloading progress: 1356656/12910325[2K[1Gngrok - downloading progress: 1364888/12910325[2K[1Gngrok - downloading progress: 1370680/12910325[2K[1Gngrok - downloading progress: 1382264/12910325[2K[1Gngrok - downloading progress: 1398648/12910325[2K[1Gngrok - downloading progress: 1402536/12910325[2K[1Gngrok - downloading progress: 1418464/12910325[2K[1Gngrok - downloading progress: 1432944/12910325[2K[1Gngrok - downloading progress: 1447424/12910325[2K[1Gngrok - downloading progress: 1450320/12910325[2K[1Gngrok - downloading progress: 1453216/12910325[2K[1Gngrok - downloading progress: 1469600/12910325[2K[1Gngrok - downloading progress: 1476384/12910325[2K[1Gngrok - downloading progress: 1492768/12910325[2K[1Gngrok - downloading progress: 1493760/12910325[2K[1Gngrok - downloading progress: 1496656/12910325[2K[1Gngrok - downloading progress: 1512584/12910325[2K[1Gngrok - downloading progress: 1514032/12910325[2K[1Gngrok - downloading progress: 1518376/12910325[2K[1Gngrok - downloading progress: 1531408/12910325[2K[1Gngrok - downloading progress: 1545888/12910325[2K[1Gngrok - downloading progress: 1562272/12910325[2K[1Gngrok - downloading progress: 1563264/12910325[2K[1Gngrok - downloading progress: 1566160/12910325[2K[1Gngrok - downloading progress: 1577744/12910325[2K[1Gngrok - downloading progress: 1580640/12910325[2K[1Gngrok - downloading progress: 1597024/12910325[2K[1Gngrok - downloading progress: 1612496/12910325[2K[1Gngrok - downloading progress: 1626976/12910325[2K[1Gngrok - downloading progress: 1642904/12910325[2K[1Gngrok - downloading progress: 1658832/12910325[2K[1Gngrok - downloading progress: 1675216/12910325[2K[1Gngrok - downloading progress: 1679104/12910325[2K[1Gngrok - downloading progress: 1682000/12910325[2K[1Gngrok - downloading progress: 1695032/12910325[2K[1Gngrok - downloading progress: 1711416/12910325[2K[1Gngrok - downloading progress: 1712408/12910325[2K[1Gngrok - downloading progress: 1728792/12910325[2K[1Gngrok - downloading progress: 1745176/12910325[2K[1Gngrok - downloading progress: 1747160/12910325[2K[1Gngrok - downloading progress: 1751504/12910325[2K[1Gngrok - downloading progress: 1764536/12910325[2K[1Gngrok - downloading progress: 1774672/12910325[2K[1Gngrok - downloading progress: 1791056/12910325[2K[1Gngrok - downloading progress: 1793496/12910325[2K[1Gngrok - downloading progress: 1809880/12910325[2K[1Gngrok - downloading progress: 1819560/12910325[2K[1Gngrok - downloading progress: 1822456/12910325[2K[1Gngrok - downloading progress: 1838384/12910325[2K[1Gngrok - downloading progress: 1854768/12910325[2K[1Gngrok - downloading progress: 1871152/12910325[2K[1Gngrok - downloading progress: 1871688/12910325[2K[1Gngrok - downloading progress: 1888072/12910325[2K[1Gngrok - downloading progress: 1890512/12910325[2K[1Gngrok - downloading progress: 1906896/12910325[2K[1Gngrok - downloading progress: 1915128/12910325[2K[1Gngrok - downloading progress: 1931512/12910325[2K[1Gngrok - downloading progress: 1947896/12910325[2K[1Gngrok - downloading progress: 1951328/12910325[2K[1Gngrok - downloading progress: 1967712/12910325[2K[1Gngrok - downloading progress: 1984096/12910325[2K[1Gngrok - downloading progress: 1996216/12910325[2K[1Gngrok - downloading progress: 2007800/12910325[2K[1Gngrok - downloading progress: 2010696/12910325[2K[1Gngrok - downloading progress: 2027080/12910325[2K[1Gngrok - downloading progress: 2035312/12910325[2K[1Gngrok - downloading progress: 2051696/12910325[2K[1Gngrok - downloading progress: 2068080/12910325[2K[1Gngrok - downloading progress: 2077304/12910325[2K[1Gngrok - downloading progress: 2093688/12910325[2K[1Gngrok - downloading progress: 2099024/12910325[2K[1Gngrok - downloading progress: 2100472/12910325[2K[1Gngrok - downloading progress: 2107712/12910325[2K[1Gngrok - downloading progress: 2124096/12910325[2K[1Gngrok - downloading progress: 2136672/12910325[2K[1Gngrok - downloading progress: 2153056/12910325[2K[1Gngrok - downloading progress: 2159840/12910325[2K[1Gngrok - downloading progress: 2162736/12910325[2K[1Gngrok - downloading progress: 2169976/12910325[2K[1Gngrok - downloading progress: 2186360/12910325[2K[1Gngrok - downloading progress: 2202744/12910325[2K[1Gngrok - downloading progress: 2206176/12910325[2K[1Gngrok - downloading progress: 2222560/12910325[2K[1Gngrok - downloading progress: 2230792/12910325[2K[1Gngrok - downloading progress: 2247176/12910325[2K[1Gngrok - downloading progress: 2263560/12910325[2K[1Gngrok - downloading progress: 2268440/12910325[2K[1Gngrok - downloading progress: 2274232/12910325[2K[1Gngrok - downloading progress: 2290616/12910325[2K[1Gngrok - downloading progress: 2294504/12910325[2K[1Gngrok - downloading progress: 2310888/12910325[2K[1Gngrok - downloading progress: 2311880/12910325[2K[1Gngrok - downloading progress: 2328264/12910325[2K[1Gngrok - downloading progress: 2342288/12910325[2K[1Gngrok - downloading progress: 2349528/12910325[2K[1Gngrok - downloading progress: 2359664/12910325[2K[1Gngrok - downloading progress: 2362560/12910325[2K[1Gngrok - downloading progress: 2378944/12910325[2K[1Gngrok - downloading progress: 2381384/12910325[2K[1Gngrok - downloading progress: 2394416/12910325[2K[1Gngrok - downloading progress: 2407448/12910325[2K[1Gngrok - downloading progress: 2417584/12910325[2K[1Gngrok - downloading progress: 2420480/12910325[2K[1Gngrok - downloading progress: 2424824/12910325[2K[1Gngrok - downloading progress: 2437856/12910325[2K[1Gngrok - downloading progress: 2454240/12910325[2K[1Gngrok - downloading progress: 2455232/12910325[2K[1Gngrok - downloading progress: 2471616/12910325[2K[1Gngrok - downloading progress: 2485640/12910325[2K[1Gngrok - downloading progress: 2489984/12910325[2K[1Gngrok - downloading progress: 2495776/12910325[2K[1Gngrok - downloading progress: 2512160/12910325[2K[1Gngrok - downloading progress: 2528544/12910325[2K[1Gngrok - downloading progress: 2536320/12910325[2K[1Gngrok - downloading progress: 2552704/12910325[2K[1Gngrok - downloading progress: 2555144/12910325[2K[1Gngrok - downloading progress: 2558040/12910325[2K[1Gngrok - downloading progress: 2574424/12910325[2K[1Gngrok - downloading progress: 2585552/12910325[2K[1Gngrok - downloading progress: 2592792/12910325[2K[1Gngrok - downloading progress: 2609176/12910325[2K[1Gngrok - downloading progress: 2620304/12910325[2K[1Gngrok - downloading progress: 2624648/12910325[2K[1Gngrok - downloading progress: 2641032/12910325[2K[1Gngrok - downloading progress: 2656504/12910325[2K[1Gngrok - downloading progress: 2672888/12910325[2K[1Gngrok - downloading progress: 2673880/12910325[2K[1Gngrok - downloading progress: 2685464/12910325[2K[1Gngrok - downloading progress: 2688360/12910325[2K[1Gngrok - downloading progress: 2695600/12910325[2K[1Gngrok - downloading progress: 2702840/12910325[2K[1Gngrok - downloading progress: 2719224/12910325[2K[1Gngrok - downloading progress: 2730352/12910325[2K[1Gngrok - downloading progress: 2746736/12910325[2K[1Gngrok - downloading progress: 2763120/12910325[2K[1Gngrok - downloading progress: 2779504/12910325[2K[1Gngrok - downloading progress: 2782480/12910325[2K[1Gngrok - downloading progress: 2798864/12910325[2K[1Gngrok - downloading progress: 2815248/12910325[2K[1Gngrok - downloading progress: 2815784/12910325[2K[1Gngrok - downloading progress: 2820128/12910325[2K[1Gngrok - downloading progress: 2827368/12910325[2K[1Gngrok - downloading progress: 2843752/12910325[2K[1Gngrok - downloading progress: 2853432/12910325[2K[1Gngrok - downloading progress: 2869816/12910325[2K[1Gngrok - downloading progress: 2880944/12910325[2K[1Gngrok - downloading progress: 2897328/12910325[2K[1Gngrok - downloading progress: 2911352/12910325[2K[1Gngrok - downloading progress: 2925832/12910325[2K[1Gngrok - downloading progress: 2942216/12910325[2K[1Gngrok - downloading progress: 2944656/12910325[2K[1Gngrok - downloading progress: 2953344/12910325[2K[1Gngrok - downloading progress: 2969728/12910325[2K[1Gngrok - downloading progress: 2986112/12910325[2K[1Gngrok - downloading progress: 2990992/12910325[2K[1Gngrok - downloading progress: 3002576/12910325[2K[1Gngrok - downloading progress: 3011264/12910325[2K[1Gngrok - downloading progress: 3014160/12910325[2K[1Gngrok - downloading progress: 3030544/12910325[2K[1Gngrok - downloading progress: 3032984/12910325[2K[1Gngrok - downloading progress: 3049368/12910325[2K[1Gngrok - downloading progress: 3065752/12910325[2K[1Gngrok - downloading progress: 3067736/12910325[2K[1Gngrok - downloading progress: 3076424/12910325[2K[1Gngrok - downloading progress: 3079320/12910325[2K[1Gngrok - downloading progress: 3095704/12910325[2K[1Gngrok - downloading progress: 3109728/12910325[2K[1Gngrok - downloading progress: 3126112/12910325[2K[1Gngrok - downloading progress: 3142496/12910325[2K[1Gngrok - downloading progress: 3144480/12910325[2K[1Gngrok - downloading progress: 3160864/12910325[2K[1Gngrok - downloading progress: 3177248/12910325[2K[1Gngrok - downloading progress: 3190816/12910325[2K[1Gngrok - downloading progress: 3206744/12910325[2K[1Gngrok - downloading progress: 3209640/12910325[2K[1Gngrok - downloading progress: 3226024/12910325[2K[1Gngrok - downloading progress: 3242408/12910325[2K[1Gngrok - downloading progress: 3257424/12910325[2K[1Gngrok - downloading progress: 3273808/12910325[2K[1Gngrok - downloading progress: 3290192/12910325[2K[1Gngrok - downloading progress: 3299416/12910325[2K[1Gngrok - downloading progress: 3315800/12910325[2K[1Gngrok - downloading progress: 3332184/12910325[2K[1Gngrok - downloading progress: 3337064/12910325[2K[1Gngrok - downloading progress: 3353448/12910325[2K[1Gngrok - downloading progress: 3363128/12910325[2K[1Gngrok - downloading progress: 3379512/12910325[2K[1Gngrok - downloading progress: 3389192/12910325[2K[1Gngrok - downloading progress: 3402224/12910325[2K[1Gngrok - downloading progress: 3408016/12910325[2K[1Gngrok - downloading progress: 3424400/12910325[2K[1Gngrok - downloading progress: 3440784/12910325[2K[1Gngrok - downloading progress: 3442768/12910325[2K[1Gngrok - downloading progress: 3459152/12910325[2K[1Gngrok - downloading progress: 3467384/12910325[2K[1Gngrok - downloading progress: 3483768/12910325[2K[1Gngrok - downloading progress: 3489104/12910325[2K[1Gngrok - downloading progress: 3505488/12910325[2K[1Gngrok - downloading progress: 3521872/12910325[2K[1Gngrok - downloading progress: 3529648/12910325[2K[1Gngrok - downloading progress: 3535440/12910325[2K[1Gngrok - downloading progress: 3548472/12910325[2K[1Gngrok - downloading progress: 3564856/12910325[2K[1Gngrok - downloading progress: 3574536/12910325[2K[1Gngrok - downloading progress: 3590920/12910325[2K[1Gngrok - downloading progress: 3597704/12910325[2K[1Gngrok - downloading progress: 3606392/12910325[2K[1Gngrok - downloading progress: 3622776/12910325[2K[1Gngrok - downloading progress: 3628112/12910325[2K[1Gngrok - downloading progress: 3644496/12910325[2K[1Gngrok - downloading progress: 3652728/12910325[2K[1Gngrok - downloading progress: 3664312/12910325[2K[1Gngrok - downloading progress: 3677344/12910325[2K[1Gngrok - downloading progress: 3693728/12910325[2K[1Gngrok - downloading progress: 3701960/12910325[2K[1Gngrok - downloading progress: 3718344/12910325[2K[1Gngrok - downloading progress: 3726576/12910325[2K[1Gngrok - downloading progress: 3728024/12910325[2K[1Gngrok - downloading progress: 3742504/12910325[2K[1Gngrok - downloading progress: 3758888/12910325[2K[1Gngrok - downloading progress: 3775272/12910325[2K[1Gngrok - downloading progress: 3780152/12910325[2K[1Gngrok - downloading progress: 3796536/12910325[2K[1Gngrok - downloading progress: 3797528/12910325[2K[1Gngrok - downloading progress: 3800424/12910325[2K[1Gngrok - downloading progress: 3816808/12910325[2K[1Gngrok - downloading progress: 3817800/12910325[2K[1Gngrok - downloading progress: 3834184/12910325[2K[1Gngrok - downloading progress: 3839520/12910325[2K[1Gngrok - downloading progress: 3855904/12910325[2K[1Gngrok - downloading progress: 3872288/12910325[2K[1Gngrok - downloading progress: 3888672/12910325[2K[1Gngrok - downloading progress: 3895992/12910325[2K[1Gngrok - downloading progress: 3912376/12910325[2K[1Gngrok - downloading progress: 3928760/12910325[2K[1Gngrok - downloading progress: 3945144/12910325[2K[1Gngrok - downloading progress: 3953912/12910325[2K[1Gngrok - downloading progress: 3970296/12910325[2K[1Gngrok - downloading progress: 3986680/12910325[2K[1Gngrok - downloading progress: 3988664/12910325[2K[1Gngrok - downloading progress: 3990112/12910325[2K[1Gngrok - downloading progress: 4006496/12910325[2K[1Gngrok - downloading progress: 4008936/12910325[2K[1Gngrok - downloading progress: 4020520/12910325[2K[1Gngrok - downloading progress: 4036904/12910325[2K[1Gngrok - downloading progress: 4053288/12910325[2K[1Gngrok - downloading progress: 4053824/12910325[2K[1Gngrok - downloading progress: 4059616/12910325[2K[1Gngrok - downloading progress: 4072648/12910325[2K[1Gngrok - downloading progress: 4089032/12910325[2K[1Gngrok - downloading progress: 4092920/12910325[2K[1Gngrok - downloading progress: 4109304/12910325[2K[1Gngrok - downloading progress: 4118984/12910325[2K[1Gngrok - downloading progress: 4132016/12910325[2K[1Gngrok - downloading progress: 4148400/12910325[2K[1Gngrok - downloading progress: 4156632/12910325[2K[1Gngrok - downloading progress: 4173016/12910325[2K[1Gngrok - downloading progress: 4189400/12910325[2K[1Gngrok - downloading progress: 4197176/12910325[2K[1Gngrok - downloading progress: 4213560/12910325[2K[1Gngrok - downloading progress: 4214552/12910325[2K[1Gngrok - downloading progress: 4230936/12910325[2K[1Gngrok - downloading progress: 4240616/12910325[2K[1Gngrok - downloading progress: 4257000/12910325[2K[1Gngrok - downloading progress: 4273384/12910325[2K[1Gngrok - downloading progress: 4278264/12910325[2K[1Gngrok - downloading progress: 4294648/12910325[2K[1Gngrok - downloading progress: 4311032/12910325[2K[1Gngrok - downloading progress: 4314464/12910325[2K[1Gngrok - downloading progress: 4330848/12910325[2K[1Gngrok - downloading progress: 4340528/12910325[2K[1Gngrok - downloading progress: 4349216/12910325[2K[1Gngrok - downloading progress: 4365600/12910325[2K[1Gngrok - downloading progress: 4379624/12910325[2K[1Gngrok - downloading progress: 4394104/12910325[2K[1Gngrok - downloading progress: 4410488/12910325[2K[1Gngrok - downloading progress: 4415824/12910325[2K[1Gngrok - downloading progress: 4428856/12910325[2K[1Gngrok - downloading progress: 4444784/12910325[2K[1Gngrok - downloading progress: 4453472/12910325[2K[1Gngrok - downloading progress: 4469856/12910325[2K[1Gngrok - downloading progress: 4478088/12910325[2K[1Gngrok - downloading progress: 4494472/12910325[2K[1Gngrok - downloading progress: 4510856/12910325[2K[1Gngrok - downloading progress: 4512840/12910325[2K[1Gngrok - downloading progress: 4529224/12910325[2K[1Gngrok - downloading progress: 4533112/12910325[2K[1Gngrok - downloading progress: 4546144/12910325[2K[1Gngrok - downloading progress: 4562528/12910325[2K[1Gngrok - downloading progress: 4563520/12910325[2K[1Gngrok - downloading progress: 4579448/12910325[2K[1Gngrok - downloading progress: 4582344/12910325[2K[1Gngrok - downloading progress: 4598728/12910325[2K[1Gngrok - downloading progress: 4614200/12910325[2K[1Gngrok - downloading progress: 4630584/12910325[2K[1Gngrok - downloading progress: 4640264/12910325[2K[1Gngrok - downloading progress: 4656192/12910325[2K[1Gngrok - downloading progress: 4670672/12910325[2K[1Gngrok - downloading progress: 4673568/12910325[2K[1Gngrok - downloading progress: 4689952/12910325[2K[1Gngrok - downloading progress: 4698184/12910325[2K[1Gngrok - downloading progress: 4714568/12910325[2K[1Gngrok - downloading progress: 4730952/12910325[2K[1Gngrok - downloading progress: 4738728/12910325[2K[1Gngrok - downloading progress: 4755112/12910325[2K[1Gngrok - downloading progress: 4760448/12910325[2K[1Gngrok - downloading progress: 4770584/12910325[2K[1Gngrok - downloading progress: 4772032/12910325[2K[1Gngrok - downloading progress: 4788416/12910325[2K[1Gngrok - downloading progress: 4795200/12910325[2K[1Gngrok - downloading progress: 4811584/12910325[2K[1Gngrok - downloading progress: 4827968/12910325[2K[1Gngrok - downloading progress: 4835744/12910325[2K[1Gngrok - downloading progress: 4838640/12910325[2K[1Gngrok - downloading progress: 4855024/12910325[2K[1Gngrok - downloading progress: 4871408/12910325[2K[1Gngrok - downloading progress: 4887792/12910325[2K[1Gngrok - downloading progress: 4890768/12910325[2K[1Gngrok - downloading progress: 4900904/12910325[2K[1Gngrok - downloading progress: 4917288/12910325[2K[1Gngrok - downloading progress: 4921176/12910325[2K[1Gngrok - downloading progress: 4937560/12910325[2K[1Gngrok - downloading progress: 4953944/12910325[2K[1Gngrok - downloading progress: 4957376/12910325[2K[1Gngrok - downloading progress: 4973760/12910325[2K[1Gngrok - downloading progress: 4990144/12910325[2K[1Gngrok - downloading progress: 5006528/12910325[2K[1Gngrok - downloading progress: 5012400/12910325[2K[1Gngrok - downloading progress: 5028784/12910325[2K[1Gngrok - downloading progress: 5032672/12910325[2K[1Gngrok - downloading progress: 5047152/12910325[2K[1Gngrok - downloading progress: 5063536/12910325[2K[1Gngrok - downloading progress: 5065976/12910325[2K[1Gngrok - downloading progress: 5082360/12910325[2K[1Gngrok - downloading progress: 5096384/12910325[2K[1Gngrok - downloading progress: 5112768/12910325[2K[1Gngrok - downloading progress: 5122448/12910325[2K[1Gngrok - downloading progress: 5138832/12910325[2K[1Gngrok - downloading progress: 5155216/12910325[2K[1Gngrok - downloading progress: 5161544/12910325[2K[1Gngrok - downloading progress: 5177928/12910325[2K[1Gngrok - downloading progress: 5194312/12910325[2K[1Gngrok - downloading progress: 5210696/12910325[2K[1Gngrok - downloading progress: 5216568/12910325[2K[1Gngrok - downloading progress: 5232952/12910325[2K[1Gngrok - downloading progress: 5249336/12910325[2K[1Gngrok - downloading progress: 5265720/12910325[2K[1Gngrok - downloading progress: 5270144/12910325[2K[1Gngrok - downloading progress: 5286528/12910325[2K[1Gngrok - downloading progress: 5296208/12910325[2K[1Gngrok - downloading progress: 5307792/12910325[2K[1Gngrok - downloading progress: 5324176/12910325[2K[1Gngrok - downloading progress: 5340560/12910325[2K[1Gngrok - downloading progress: 5345440/12910325[2K[1Gngrok - downloading progress: 5361824/12910325[2K[1Gngrok - downloading progress: 5365712/12910325[2K[1Gngrok - downloading progress: 5382096/12910325[2K[1Gngrok - downloading progress: 5396120/12910325[2K[1Gngrok - downloading progress: 5412504/12910325[2K[1Gngrok - downloading progress: 5428888/12910325[2K[1Gngrok - downloading progress: 5432320/12910325[2K[1Gngrok - downloading progress: 5448704/12910325[2K[1Gngrok - downloading progress: 5465088/12910325[2K[1Gngrok - downloading progress: 5474312/12910325[2K[1Gngrok - downloading progress: 5490696/12910325[2K[1Gngrok - downloading progress: 5507080/12910325[2K[1Gngrok - downloading progress: 5510512/12910325[2K[1Gngrok - downloading progress: 5526896/12910325[2K[1Gngrok - downloading progress: 5542368/12910325[2K[1Gngrok - downloading progress: 5553952/12910325[2K[1Gngrok - downloading progress: 5570336/12910325[2K[1Gngrok - downloading progress: 5574224/12910325[2K[1Gngrok - downloading progress: 5590608/12910325[2K[1Gngrok - downloading progress: 5594496/12910325[2K[1Gngrok - downloading progress: 5610880/12910325[2K[1Gngrok - downloading progress: 5617664/12910325[2K[1Gngrok - downloading progress: 5619112/12910325[2K[1Gngrok - downloading progress: 5635040/12910325[2K[1Gngrok - downloading progress: 5640832/12910325[2K[1Gngrok - downloading progress: 5655312/12910325[2K[1Gngrok - downloading progress: 5671696/12910325[2K[1Gngrok - downloading progress: 5682824/12910325[2K[1Gngrok - downloading progress: 5684272/12910325[2K[1Gngrok - downloading progress: 5685720/12910325[2K[1Gngrok - downloading progress: 5702104/12910325[2K[1Gngrok - downloading progress: 5705992/12910325[2K[1Gngrok - downloading progress: 5722376/12910325[2K[1Gngrok - downloading progress: 5738760/12910325[2K[1Gngrok - downloading progress: 5739296/12910325[2K[1Gngrok - downloading progress: 5755680/12910325[2K[1Gngrok - downloading progress: 5756672/12910325[2K[1Gngrok - downloading progress: 5773056/12910325[2K[1Gngrok - downloading progress: 5789440/12910325[2K[1Gngrok - downloading progress: 5792872/12910325[2K[1Gngrok - downloading progress: 5809256/12910325[2K[1Gngrok - downloading progress: 5813144/12910325[2K[1Gngrok - downloading progress: 5829528/12910325[2K[1Gngrok - downloading progress: 5845912/12910325[2K[1Gngrok - downloading progress: 5849344/12910325[2K[1Gngrok - downloading progress: 5865728/12910325[2K[1Gngrok - downloading progress: 5869616/12910325[2K[1Gngrok - downloading progress: 5878304/12910325[2K[1Gngrok - downloading progress: 5894688/12910325[2K[1Gngrok - downloading progress: 5911072/12910325[2K[1Gngrok - downloading progress: 5927456/12910325[2K[1Gngrok - downloading progress: 5943840/12910325[2K[1Gngrok - downloading progress: 5960224/12910325[2K[1Gngrok - downloading progress: 5976608/12910325[2K[1Gngrok - downloading progress: 5992992/12910325[2K[1Gngrok - downloading progress: 6009376/12910325[2K[1Gngrok - downloading progress: 6025760/12910325[2K[1Gngrok - downloading progress: 6042144/12910325[2K[1Gngrok - downloading progress: 6058528/12910325[2K[1Gngrok - downloading progress: 6074912/12910325[2K[1Gngrok - downloading progress: 6091296/12910325[2K[1Gngrok - downloading progress: 6107680/12910325[2K[1Gngrok - downloading progress: 6124064/12910325[2K[1Gngrok - downloading progress: 6138944/12910325[2K[1Gngrok - downloading progress: 6155328/12910325[2K[1Gngrok - downloading progress: 6171712/12910325[2K[1Gngrok - downloading progress: 6188096/12910325[2K[1Gngrok - downloading progress: 6204480/12910325[2K[1Gngrok - downloading progress: 6220864/12910325[2K[1Gngrok - downloading progress: 6237248/12910325[2K[1Gngrok - downloading progress: 6253632/12910325[2K[1Gngrok - downloading progress: 6270016/12910325[2K[1Gngrok - downloading progress: 6286400/12910325[2K[1Gngrok - downloading progress: 6302784/12910325[2K[1Gngrok - downloading progress: 6319168/12910325[2K[1Gngrok - downloading progress: 6335552/12910325[2K[1Gngrok - downloading progress: 6351936/12910325[2K[1Gngrok - downloading progress: 6368320/12910325[2K[1Gngrok - downloading progress: 6384704/12910325[2K[1Gngrok - downloading progress: 6401088/12910325[2K[1Gngrok - downloading progress: 6417472/12910325[2K[1Gngrok - downloading progress: 6433856/12910325[2K[1Gngrok - downloading progress: 6450240/12910325[2K[1Gngrok - downloading progress: 6466624/12910325[2K[1Gngrok - downloading progress: 6467640/12910325[2K[1Gngrok - downloading progress: 6484024/12910325[2K[1Gngrok - downloading progress: 6500408/12910325[2K[1Gngrok - downloading progress: 6506736/12910325[2K[1Gngrok - downloading progress: 6523120/12910325[2K[1Gngrok - downloading progress: 6529904/12910325[2K[1Gngrok - downloading progress: 6541488/12910325[2K[1Gngrok - downloading progress: 6557872/12910325[2K[1Gngrok - downloading progress: 6574256/12910325[2K[1Gngrok - downloading progress: 6574792/12910325[2K[1Gngrok - downloading progress: 6591176/12910325[2K[1Gngrok - downloading progress: 6603752/12910325[2K[1Gngrok - downloading progress: 6620136/12910325[2K[1Gngrok - downloading progress: 6636520/12910325[2K[1Gngrok - downloading progress: 6637056/12910325[2K[1Gngrok - downloading progress: 6653440/12910325[2K[1Gngrok - downloading progress: 6657328/12910325[2K[1Gngrok - downloading progress: 6673712/12910325[2K[1Gngrok - downloading progress: 6677600/12910325[2K[1Gngrok - downloading progress: 6693528/12910325[2K[1Gngrok - downloading progress: 6709912/12910325[2K[1Gngrok - downloading progress: 6725384/12910325[2K[1Gngrok - downloading progress: 6741768/12910325[2K[1Gngrok - downloading progress: 6747104/12910325[2K[1Gngrok - downloading progress: 6763488/12910325[2K[1Gngrok - downloading progress: 6768824/12910325[2K[1Gngrok - downloading progress: 6785208/12910325[2K[1Gngrok - downloading progress: 6790544/12910325[2K[1Gngrok - downloading progress: 6791992/12910325[2K[1Gngrok - downloading progress: 6808376/12910325[2K[1Gngrok - downloading progress: 6812264/12910325[2K[1Gngrok - downloading progress: 6813712/12910325[2K[1Gngrok - downloading progress: 6828192/12910325[2K[1Gngrok - downloading progress: 6844576/12910325[2K[1Gngrok - downloading progress: 6860960/12910325[2K[1Gngrok - downloading progress: 6870184/12910325[2K[1Gngrok - downloading progress: 6886568/12910325[2K[1Gngrok - downloading progress: 6902952/12910325[2K[1Gngrok - downloading progress: 6917968/12910325[2K[1Gngrok - downloading progress: 6926656/12910325[2K[1Gngrok - downloading progress: 6936792/12910325[2K[1Gngrok - downloading progress: 6953176/12910325[2K[1Gngrok - downloading progress: 6959960/12910325[2K[1Gngrok - downloading progress: 6976344/12910325[2K[1Gngrok - downloading progress: 6992728/12910325[2K[1Gngrok - downloading progress: 6996160/12910325[2K[1Gngrok - downloading progress: 7012544/12910325[2K[1Gngrok - downloading progress: 7028928/12910325[2K[1Gngrok - downloading progress: 7045312/12910325[2K[1Gngrok - downloading progress: 7049736/12910325[2K[1Gngrok - downloading progress: 7066120/12910325[2K[1Gngrok - downloading progress: 7082504/12910325[2K[1Gngrok - downloading progress: 7098888/12910325[2K[1Gngrok - downloading progress: 7115272/12910325[2K[1Gngrok - downloading progress: 7120688/12910325[2K[1Gngrok - downloading progress: 7137072/12910325[2K[1Gngrok - downloading progress: 7142408/12910325[2K[1Gngrok - downloading progress: 7158792/12910325[2K[1Gngrok - downloading progress: 7168472/12910325[2K[1Gngrok - downloading progress: 7184856/12910325[2K[1Gngrok - downloading progress: 7201240/12910325[2K[1Gngrok - downloading progress: 7217624/12910325[2K[1Gngrok - downloading progress: 7227840/12910325[2K[1Gngrok - downloading progress: 7244224/12910325[2K[1Gngrok - downloading progress: 7260608/12910325[2K[1Gngrok - downloading progress: 7276992/12910325[2K[1Gngrok - downloading progress: 7282864/12910325[2K[1Gngrok - downloading progress: 7299248/12910325[2K[1Gngrok - downloading progress: 7311824/12910325[2K[1Gngrok - downloading progress: 7324856/12910325[2K[1Gngrok - downloading progress: 7341240/12910325[2K[1Gngrok - downloading progress: 7352368/12910325[2K[1Gngrok - downloading progress: 7368752/12910325[2K[1Gngrok - downloading progress: 7385136/12910325[2K[1Gngrok - downloading progress: 7395808/12910325[2K[1Gngrok - downloading progress: 7412192/12910325[2K[1Gngrok - downloading progress: 7428576/12910325[2K[1Gngrok - downloading progress: 7429112/12910325[2K[1Gngrok - downloading progress: 7442144/12910325[2K[1Gngrok - downloading progress: 7458528/12910325[2K[1Gngrok - downloading progress: 7474912/12910325[2K[1Gngrok - downloading progress: 7476896/12910325[2K[1Gngrok - downloading progress: 7493280/12910325[2K[1Gngrok - downloading progress: 7509664/12910325[2K[1Gngrok - downloading progress: 7523232/12910325[2K[1Gngrok - downloading progress: 7539616/12910325[2K[1Gngrok - downloading progress: 7556000/12910325[2K[1Gngrok - downloading progress: 7569568/12910325[2K[1Gngrok - downloading progress: 7572464/12910325[2K[1Gngrok - downloading progress: 7588848/12910325[2K[1Gngrok - downloading progress: 7594184/12910325[2K[1Gngrok - downloading progress: 7610568/12910325[2K[1Gngrok - downloading progress: 7626952/12910325[2K[1Gngrok - downloading progress: 7643336/12910325[2K[1Gngrok - downloading progress: 7652104/12910325[2K[1Gngrok - downloading progress: 7668488/12910325[2K[1Gngrok - downloading progress: 7684872/12910325[2K[1Gngrok - downloading progress: 7701256/12910325[2K[1Gngrok - downloading progress: 7702784/12910325[2K[1Gngrok - downloading progress: 7719168/12910325[2K[1Gngrok - downloading progress: 7735552/12910325[2K[1Gngrok - downloading progress: 7751936/12910325[2K[1Gngrok - downloading progress: 7768320/12910325[2K[1Gngrok - downloading progress: 7769392/12910325[2K[1Gngrok - downloading progress: 7785776/12910325[2K[1Gngrok - downloading progress: 7802160/12910325[2K[1Gngrok - downloading progress: 7818544/12910325[2K[1Gngrok - downloading progress: 7834928/12910325[2K[1Gngrok - downloading progress: 7849032/12910325[2K[1Gngrok - downloading progress: 7865416/12910325[2K[1Gngrok - downloading progress: 7881800/12910325[2K[1Gngrok - downloading progress: 7882336/12910325[2K[1Gngrok - downloading progress: 7898720/12910325[2K[1Gngrok - downloading progress: 7914192/12910325[2K[1Gngrok - downloading progress: 7930576/12910325[2K[1Gngrok - downloading progress: 7944600/12910325[2K[1Gngrok - downloading progress: 7960984/12910325[2K[1Gngrok - downloading progress: 7963424/12910325[2K[1Gngrok - downloading progress: 7979808/12910325[2K[1Gngrok - downloading progress: 7996192/12910325[2K[1Gngrok - downloading progress: 8001072/12910325[2K[1Gngrok - downloading progress: 8017456/12910325[2K[1Gngrok - downloading progress: 8028584/12910325[2K[1Gngrok - downloading progress: 8031480/12910325[2K[1Gngrok - downloading progress: 8047864/12910325[2K[1Gngrok - downloading progress: 8056096/12910325[2K[1Gngrok - downloading progress: 8072480/12910325[2K[1Gngrok - downloading progress: 8088864/12910325[2K[1Gngrok - downloading progress: 8105248/12910325[2K[1Gngrok - downloading progress: 8112568/12910325[2K[1Gngrok - downloading progress: 8128952/12910325[2K[1Gngrok - downloading progress: 8145336/12910325[2K[1Gngrok - downloading progress: 8161720/12910325[2K[1Gngrok - downloading progress: 8174832/12910325[2K[1Gngrok - downloading progress: 8191216/12910325[2K[1Gngrok - downloading progress: 8193656/12910325[2K[1Gngrok - downloading progress: 8210040/12910325[2K[1Gngrok - downloading progress: 8226424/12910325[2K[1Gngrok - downloading progress: 8238544/12910325[2K[1Gngrok - downloading progress: 8254928/12910325[2K[1Gngrok - downloading progress: 8271312/12910325[2K[1Gngrok - downloading progress: 8287696/12910325[2K[1Gngrok - downloading progress: 8289224/12910325[2K[1Gngrok - downloading progress: 8305152/12910325[2K[1Gngrok - downloading progress: 8321536/12910325[2K[1Gngrok - downloading progress: 8323976/12910325[2K[1Gngrok - downloading progress: 8340360/12910325[2K[1Gngrok - downloading progress: 8350040/12910325[2K[1Gngrok - downloading progress: 8366424/12910325[2K[1Gngrok - downloading progress: 8382808/12910325[2K[1Gngrok - downloading progress: 8399192/12910325[2K[1Gngrok - downloading progress: 8405064/12910325[2K[1Gngrok - downloading progress: 8421448/12910325[2K[1Gngrok - downloading progress: 8437832/12910325[2K[1Gngrok - downloading progress: 8448504/12910325[2K[1Gngrok - downloading progress: 8464888/12910325[2K[1Gngrok - downloading progress: 8481272/12910325[2K[1Gngrok - downloading progress: 8484704/12910325[2K[1Gngrok - downloading progress: 8490496/12910325[2K[1Gngrok - downloading progress: 8506880/12910325[2K[1Gngrok - downloading progress: 8523264/12910325[2K[1Gngrok - downloading progress: 8533936/12910325[2K[1Gngrok - downloading progress: 8550320/12910325[2K[1Gngrok - downloading progress: 8566704/12910325[2K[1Gngrok - downloading progress: 8583088/12910325[2K[1Gngrok - downloading progress: 8596200/12910325[2K[1Gngrok - downloading progress: 8612584/12910325[2K[1Gngrok - downloading progress: 8628968/12910325[2K[1Gngrok - downloading progress: 8629504/12910325[2K[1Gngrok - downloading progress: 8630952/12910325[2K[1Gngrok - downloading progress: 8647336/12910325[2K[1Gngrok - downloading progress: 8657016/12910325[2K[1Gngrok - downloading progress: 8673400/12910325[2K[1Gngrok - downloading progress: 8689784/12910325[2K[1Gngrok - downloading progress: 8706168/12910325[2K[1Gngrok - downloading progress: 8707696/12910325[2K[1Gngrok - downloading progress: 8724080/12910325[2K[1Gngrok - downloading progress: 8740464/12910325[2K[1Gngrok - downloading progress: 8743896/12910325[2K[1Gngrok - downloading progress: 8760280/12910325[2K[1Gngrok - downloading progress: 8762720/12910325[2K[1Gngrok - downloading progress: 8779104/12910325[2K[1Gngrok - downloading progress: 8790232/12910325[2K[1Gngrok - downloading progress: 8806616/12910325[2K[1Gngrok - downloading progress: 8823000/12910325[2K[1Gngrok - downloading progress: 8839384/12910325[2K[1Gngrok - downloading progress: 8839464/12910325[2K[1Gngrok - downloading progress: 8855848/12910325[2K[1Gngrok - downloading progress: 8872232/12910325[2K[1Gngrok - downloading progress: 8888616/12910325[2K[1Gngrok - downloading progress: 8898832/12910325[2K[1Gngrok - downloading progress: 8904624/12910325[2K[1Gngrok - downloading progress: 8907520/12910325[2K[1Gngrok - downloading progress: 8916208/12910325[2K[1Gngrok - downloading progress: 8932592/12910325[2K[1Gngrok - downloading progress: 8945168/12910325[2K[1Gngrok - downloading progress: 8961552/12910325[2K[1Gngrok - downloading progress: 8977936/12910325[2K[1Gngrok - downloading progress: 8994320/12910325[2K[1Gngrok - downloading progress: 8995848/12910325[2K[1Gngrok - downloading progress: 9012232/12910325[2K[1Gngrok - downloading progress: 9028616/12910325[2K[1Gngrok - downloading progress: 9045000/12910325[2K[1Gngrok - downloading progress: 9061384/12910325[2K[1Gngrok - downloading progress: 9066800/12910325[2K[1Gngrok - downloading progress: 9083184/12910325[2K[1Gngrok - downloading progress: 9099568/12910325[2K[1Gngrok - downloading progress: 9115952/12910325[2K[1Gngrok - downloading progress: 9132336/12910325[2K[1Gngrok - downloading progress: 9148720/12910325[2K[1Gngrok - downloading progress: 9165104/12910325[2K[1Gngrok - downloading progress: 9172504/12910325[2K[1Gngrok - downloading progress: 9188888/12910325[2K[1Gngrok - downloading progress: 9205272/12910325[2K[1Gngrok - downloading progress: 9211600/12910325[2K[1Gngrok - downloading progress: 9227984/12910325[2K[1Gngrok - downloading progress: 9244368/12910325[2K[1Gngrok - downloading progress: 9246352/12910325[2K[1Gngrok - downloading progress: 9262736/12910325[2K[1Gngrok - downloading progress: 9279120/12910325[2K[1Gngrok - downloading progress: 9295504/12910325[2K[1Gngrok - downloading progress: 9311888/12910325[2K[1Gngrok - downloading progress: 9328272/12910325[2K[1Gngrok - downloading progress: 9336128/12910325[2K[1Gngrok - downloading progress: 9352512/12910325[2K[1Gngrok - downloading progress: 9368896/12910325[2K[1Gngrok - downloading progress: 9385280/12910325[2K[1Gngrok - downloading progress: 9401664/12910325[2K[1Gngrok - downloading progress: 9418048/12910325[2K[1Gngrok - downloading progress: 9434432/12910325[2K[1Gngrok - downloading progress: 9450816/12910325[2K[1Gngrok - downloading progress: 9462104/12910325[2K[1Gngrok - downloading progress: 9478488/12910325[2K[1Gngrok - downloading progress: 9494872/12910325[2K[1Gngrok - downloading progress: 9511256/12910325[2K[1Gngrok - downloading progress: 9527640/12910325[2K[1Gngrok - downloading progress: 9533056/12910325[2K[1Gngrok - downloading progress: 9549440/12910325[2K[1Gngrok - downloading progress: 9565824/12910325[2K[1Gngrok - downloading progress: 9569256/12910325[2K[1Gngrok - downloading progress: 9585640/12910325[2K[1Gngrok - downloading progress: 9602024/12910325[2K[1Gngrok - downloading progress: 9606904/12910325[2K[1Gngrok - downloading progress: 9623288/12910325[2K[1Gngrok - downloading progress: 9637312/12910325[2K[1Gngrok - downloading progress: 9653696/12910325[2K[1Gngrok - downloading progress: 9663376/12910325[2K[1Gngrok - downloading progress: 9679760/12910325[2K[1Gngrok - downloading progress: 9696144/12910325[2K[1Gngrok - downloading progress: 9709712/12910325[2K[1Gngrok - downloading progress: 9726096/12910325[2K[1Gngrok - downloading progress: 9742480/12910325[2K[1Gngrok - downloading progress: 9753152/12910325[2K[1Gngrok - downloading progress: 9756048/12910325[2K[1Gngrok - downloading progress: 9770528/12910325[2K[1Gngrok - downloading progress: 9786912/12910325[2K[1Gngrok - downloading progress: 9803296/12910325[2K[1Gngrok - downloading progress: 9806728/12910325[2K[1Gngrok - downloading progress: 9823112/12910325[2K[1Gngrok - downloading progress: 9839496/12910325[2K[1Gngrok - downloading progress: 9855880/12910325[2K[1Gngrok - downloading progress: 9858856/12910325[2K[1Gngrok - downloading progress: 9875240/12910325[2K[1Gngrok - downloading progress: 9891624/12910325[2K[1Gngrok - downloading progress: 9896504/12910325[2K[1Gngrok - downloading progress: 9912888/12910325[2K[1Gngrok - downloading progress: 9915328/12910325[2K[1Gngrok - downloading progress: 9931712/12910325[2K[1Gngrok - downloading progress: 9941392/12910325[2K[1Gngrok - downloading progress: 9957776/12910325[2K[1Gngrok - downloading progress: 9974160/12910325[2K[1Gngrok - downloading progress: 9990544/12910325[2K[1Gngrok - downloading progress: 10006928/12910325[2K[1Gngrok - downloading progress: 10008000/12910325[2K[1Gngrok - downloading progress: 10024384/12910325[2K[1Gngrok - downloading progress: 10039856/12910325[2K[1Gngrok - downloading progress: 10042752/12910325[2K[1Gngrok - downloading progress: 10059136/12910325[2K[1Gngrok - downloading progress: 10061576/12910325[2K[1Gngrok - downloading progress: 10077960/12910325[2K[1Gngrok - downloading progress: 10084744/12910325[2K[1Gngrok - downloading progress: 10096328/12910325[2K[1Gngrok - downloading progress: 10112712/12910325[2K[1Gngrok - downloading progress: 10123840/12910325[2K[1Gngrok - downloading progress: 10140224/12910325[2K[1Gngrok - downloading progress: 10156608/12910325[2K[1Gngrok - downloading progress: 10172992/12910325[2K[1Gngrok - downloading progress: 10174520/12910325[2K[1Gngrok - downloading progress: 10184656/12910325[2K[1Gngrok - downloading progress: 10201040/12910325[2K[1Gngrok - downloading progress: 10203480/12910325[2K[1Gngrok - downloading progress: 10219864/12910325[2K[1Gngrok - downloading progress: 10236248/12910325[2K[1Gngrok - downloading progress: 10242576/12910325[2K[1Gngrok - downloading progress: 10258960/12910325[2K[1Gngrok - downloading progress: 10275344/12910325[2K[1Gngrok - downloading progress: 10277328/12910325[2K[1Gngrok - downloading progress: 10293712/12910325[2K[1Gngrok - downloading progress: 10310096/12910325[2K[1Gngrok - downloading progress: 10326480/12910325[2K[1Gngrok - downloading progress: 10326560/12910325[2K[1Gngrok - downloading progress: 10342944/12910325[2K[1Gngrok - downloading progress: 10359328/12910325[2K[1Gngrok - downloading progress: 10375712/12910325[2K[1Gngrok - downloading progress: 10392096/12910325[2K[1Gngrok - downloading progress: 10408480/12910325[2K[1Gngrok - downloading progress: 10414888/12910325[2K[1Gngrok - downloading progress: 10431272/12910325[2K[1Gngrok - downloading progress: 10447656/12910325[2K[1Gngrok - downloading progress: 10464040/12910325[2K[1Gngrok - downloading progress: 10469912/12910325[2K[1Gngrok - downloading progress: 10486296/12910325[2K[1Gngrok - downloading progress: 10502680/12910325[2K[1Gngrok - downloading progress: 10507560/12910325[2K[1Gngrok - downloading progress: 10523944/12910325[2K[1Gngrok - downloading progress: 10540328/12910325[2K[1Gngrok - downloading progress: 10556712/12910325[2K[1Gngrok - downloading progress: 10558240/12910325[2K[1Gngrok - downloading progress: 10574624/12910325[2K[1Gngrok - downloading progress: 10591008/12910325[2K[1Gngrok - downloading progress: 10607392/12910325[2K[1Gngrok - downloading progress: 10611816/12910325[2K[1Gngrok - downloading progress: 10628200/12910325[2K[1Gngrok - downloading progress: 10639328/12910325[2K[1Gngrok - downloading progress: 10655712/12910325[2K[1Gngrok - downloading progress: 10672096/12910325[2K[1Gngrok - downloading progress: 10688480/12910325[2K[1Gngrok - downloading progress: 10698696/12910325[2K[1Gngrok - downloading progress: 10715080/12910325[2K[1Gngrok - downloading progress: 10731464/12910325[2K[1Gngrok - downloading progress: 10747848/12910325[2K[1Gngrok - downloading progress: 10747928/12910325[2K[1Gngrok - downloading progress: 10758064/12910325[2K[1Gngrok - downloading progress: 10759512/12910325[2K[1Gngrok - downloading progress: 10775896/12910325[2K[1Gngrok - downloading progress: 10792280/12910325[2K[1Gngrok - downloading progress: 10808664/12910325[2K[1Gngrok - downloading progress: 10825048/12910325[2K[1Gngrok - downloading progress: 10840600/12910325[2K[1Gngrok - downloading progress: 10856984/12910325[2K[1Gngrok - downloading progress: 10873368/12910325[2K[1Gngrok - downloading progress: 10889752/12910325[2K[1Gngrok - downloading progress: 10901416/12910325[2K[1Gngrok - downloading progress: 10917800/12910325[2K[1Gngrok - downloading progress: 10934184/12910325[2K[1Gngrok - downloading progress: 10949200/12910325[2K[1Gngrok - downloading progress: 10965584/12910325[2K[1Gngrok - downloading progress: 10981968/12910325[2K[1Gngrok - downloading progress: 10994088/12910325[2K[1Gngrok - downloading progress: 11010472/12910325[2K[1Gngrok - downloading progress: 11025944/12910325[2K[1Gngrok - downloading progress: 11028840/12910325[2K[1Gngrok - downloading progress: 11045224/12910325[2K[1Gngrok - downloading progress: 11061608/12910325[2K[1Gngrok - downloading progress: 11072280/12910325[2K[1Gngrok - downloading progress: 11088664/12910325[2K[1Gngrok - downloading progress: 11105048/12910325[2K[1Gngrok - downloading progress: 11117168/12910325[2K[1Gngrok - downloading progress: 11133552/12910325[2K[1Gngrok - downloading progress: 11147576/12910325[2K[1Gngrok - downloading progress: 11163960/12910325[2K[1Gngrok - downloading progress: 11172192/12910325[2K[1Gngrok - downloading progress: 11175088/12910325[2K[1Gngrok - downloading progress: 11177984/12910325[2K[1Gngrok - downloading progress: 11194368/12910325[2K[1Gngrok - downloading progress: 11202600/12910325[2K[1Gngrok - downloading progress: 11218984/12910325[2K[1Gngrok - downloading progress: 11228664/12910325[2K[1Gngrok - downloading progress: 11245048/12910325[2K[1Gngrok - downloading progress: 11261432/12910325[2K[1Gngrok - downloading progress: 11261968/12910325[2K[1Gngrok - downloading progress: 11278352/12910325[2K[1Gngrok - downloading progress: 11294736/12910325[2K[1Gngrok - downloading progress: 11309752/12910325[2K[1Gngrok - downloading progress: 11326136/12910325[2K[1Gngrok - downloading progress: 11331472/12910325[2K[1Gngrok - downloading progress: 11347856/12910325[2K[1Gngrok - downloading progress: 11363328/12910325[2K[1Gngrok - downloading progress: 11379712/12910325[2K[1Gngrok - downloading progress: 11389392/12910325[2K[1Gngrok - downloading progress: 11405776/12910325[2K[1Gngrok - downloading progress: 11422160/12910325[2K[1Gngrok - downloading progress: 11434280/12910325[2K[1Gngrok - downloading progress: 11450664/12910325[2K[1Gngrok - downloading progress: 11451656/12910325[2K[1Gngrok - downloading progress: 11453104/12910325[2K[1Gngrok - downloading progress: 11460344/12910325[2K[1Gngrok - downloading progress: 11476728/12910325[2K[1Gngrok - downloading progress: 11483512/12910325[2K[1Gngrok - downloading progress: 11499896/12910325[2K[1Gngrok - downloading progress: 11516280/12910325[2K[1Gngrok - downloading progress: 11522608/12910325[2K[1Gngrok - downloading progress: 11538992/12910325[2K[1Gngrok - downloading progress: 11555376/12910325[2K[1Gngrok - downloading progress: 11571760/12910325[2K[1Gngrok - downloading progress: 11579080/12910325[2K[1Gngrok - downloading progress: 11595464/12910325[2K[1Gngrok - downloading progress: 11597904/12910325[2K[1Gngrok - downloading progress: 11614288/12910325[2K[1Gngrok - downloading progress: 11630672/12910325[2K[1Gngrok - downloading progress: 11634104/12910325[2K[1Gngrok - downloading progress: 11650488/12910325[2K[1Gngrok - downloading progress: 11666872/12910325[2K[1Gngrok - downloading progress: 11680440/12910325[2K[1Gngrok - downloading progress: 11696824/12910325[2K[1Gngrok - downloading progress: 11713208/12910325[2K[1Gngrok - downloading progress: 11729592/12910325[2K[1Gngrok - downloading progress: 11736912/12910325[2K[1Gngrok - downloading progress: 11742704/12910325[2K[1Gngrok - downloading progress: 11759088/12910325[2K[1Gngrok - downloading progress: 11761528/12910325[2K[1Gngrok - downloading progress: 11777912/12910325[2K[1Gngrok - downloading progress: 11793384/12910325[2K[1Gngrok - downloading progress: 11809768/12910325[2K[1Gngrok - downloading progress: 11826152/12910325[2K[1Gngrok - downloading progress: 11842536/12910325[2K[1Gngrok - downloading progress: 11848408/12910325[2K[1Gngrok - downloading progress: 11864792/12910325[2K[1Gngrok - downloading progress: 11881176/12910325[2K[1Gngrok - downloading progress: 11883160/12910325[2K[1Gngrok - downloading progress: 11886056/12910325[2K[1Gngrok - downloading progress: 11890400/12910325[2K[1Gngrok - downloading progress: 11901984/12910325[2K[1Gngrok - downloading progress: 11918368/12910325[2K[1Gngrok - downloading progress: 11919360/12910325[2K[1Gngrok - downloading progress: 11935744/12910325[2K[1Gngrok - downloading progress: 11952128/12910325[2K[1Gngrok - downloading progress: 11952664/12910325[2K[1Gngrok - downloading progress: 11969048/12910325[2K[1Gngrok - downloading progress: 11974384/12910325[2K[1Gngrok - downloading progress: 11990768/12910325[2K[1Gngrok - downloading progress: 12007152/12910325[2K[1Gngrok - downloading progress: 12019272/12910325[2K[1Gngrok - downloading progress: 12026512/12910325[2K[1Gngrok - downloading progress: 12029408/12910325[2K[1Gngrok - downloading progress: 12043888/12910325[2K[1Gngrok - downloading progress: 12060272/12910325[2K[1Gngrok - downloading progress: 12071400/12910325[2K[1Gngrok - downloading progress: 12087784/12910325[2K[1Gngrok - downloading progress: 12104168/12910325[2K[1Gngrok - downloading progress: 12111944/12910325[2K[1Gngrok - downloading progress: 12128328/12910325[2K[1Gngrok - downloading progress: 12144712/12910325[2K[1Gngrok - downloading progress: 12153936/12910325[2K[1Gngrok - downloading progress: 12168416/12910325[2K[1Gngrok - downloading progress: 12175656/12910325[2K[1Gngrok - downloading progress: 12192040/12910325[2K[1Gngrok - downloading progress: 12198824/12910325[2K[1Gngrok - downloading progress: 12215208/12910325[2K[1Gngrok - downloading progress: 12219096/12910325[2K[1Gngrok - downloading progress: 12235480/12910325[2K[1Gngrok - downloading progress: 12245160/12910325[2K[1Gngrok - downloading progress: 12261544/12910325[2K[1Gngrok - downloading progress: 12277928/12910325[2K[1Gngrok - downloading progress: 12294312/12910325[2K[1Gngrok - downloading progress: 12301632/12910325[2K[1Gngrok - downloading progress: 12313216/12910325[2K[1Gngrok - downloading progress: 12316112/12910325[2K[1Gngrok - downloading progress: 12332496/12910325[2K[1Gngrok - downloading progress: 12347968/12910325[2K[1Gngrok - downloading progress: 12364352/12910325[2K[1Gngrok - downloading progress: 12380736/12910325[2K[1Gngrok - downloading progress: 12384168/12910325[2K[1Gngrok - downloading progress: 12400552/12910325[2K[1Gngrok - downloading progress: 12416936/12910325[2K[1Gngrok - downloading progress: 12418920/12910325[2K[1Gngrok - downloading progress: 12435304/12910325[2K[1Gngrok - downloading progress: 12447880/12910325[2K[1Gngrok - downloading progress: 12459464/12910325[2K[1Gngrok - downloading progress: 12462360/12910325[2K[1Gngrok - downloading progress: 12475392/12910325[2K[1Gngrok - downloading progress: 12491776/12910325[2K[1Gngrok - downloading progress: 12508160/12910325[2K[1Gngrok - downloading progress: 12524544/12910325[2K[1Gngrok - downloading progress: 12524624/12910325[2K[1Gngrok - downloading progress: 12541008/12910325[2K[1Gngrok - downloading progress: 12557392/12910325[2K[1Gngrok - downloading progress: 12563720/12910325[2K[1Gngrok - downloading progress: 12580104/12910325[2K[1Gngrok - downloading progress: 12596488/12910325[2K[1Gngrok - downloading progress: 12610056/12910325[2K[1Gngrok - downloading progress: 12626440/12910325[2K[1Gngrok - downloading progress: 12636120/12910325[2K[1Gngrok - downloading progress: 12652504/12910325[2K[1Gngrok - downloading progress: 12662184/12910325[2K[1Gngrok - downloading progress: 12669424/12910325[2K[1Gngrok - downloading progress: 12670872/12910325[2K[1Gngrok - downloading progress: 12686800/12910325[2K[1Gngrok - downloading progress: 12703184/12910325[2K[1Gngrok - downloading progress: 12709968/12910325[2K[1Gngrok - downloading progress: 12726352/12910325[2K[1Gngrok - downloading progress: 12731688/12910325[2K[1Gngrok - downloading progress: 12748072/12910325[2K[1Gngrok - downloading progress: 12757752/12910325[2K[1Gngrok - downloading progress: 12774136/12910325[2K[1Gngrok - downloading progress: 12790520/12910325[2K[1Gngrok - downloading progress: 12791056/12910325[2K[1Gngrok - downloading progress: 12805536/12910325[2K[1Gngrok - downloading progress: 12809880/12910325[2K[1Gngrok - downloading progress: 12826264/12910325[2K[1Gngrok - downloading progress: 12830152/12910325[2K[1Gngrok - downloading progress: 12846536/12910325[2K[1Gngrok - downloading progress: 12862920/12910325[2K[1Gngrok - downloading progress: 12879304/12910325[2K[1Gngrok - downloading progress: 12890968/12910325[2K[1Gngrok - downloading progress: 12907352/12910325[2K[1Gngrok - downloading progress: 12910325/12910325
+ngrok - binary downloaded to /root/.ngrok/aHR0cHM6Ly9iaW4uZXF1aW5veC5pby9jLzRWbUR6QTdpYUhiL25ncm9rLXN0YWJsZS1saW51eC1hcm0uemlw.zip
+ngrok - unpacking binary
+ngrok - binary unpacked to /app/node_modules/ngrok/bin/ngrok
+[91mnpm[0m[91m [0m[91mnotice[0m[91m created a lockfile as package-lock.json. You should commit this file.
+[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m eslint-config-import@0.13.0 requires a peer of eslint-plugin-import@0.13.x but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm[0m[91m [0m[91mWARN ajv-keywords@2.1.1 requires a peer of ajv@^5.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN google-home-notification-gateway@1.0.0 No description
+npm [0m[91mWARN[0m[91m google-home-notification-gateway@1.0.0 No repository field.
+[0m[91m
+[0madded 467 packages from 421 contributors and audited 28296 packages in 1596.229s
+found 54 vulnerabilities (18 low, 24 moderate, 12 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+Removing intermediate container 178099941e61
+ ---> 3541af28c187
+Step 9/13 : VOLUME /app/backend/storage
+ ---> Running in 1e52c0f743f7
+Removing intermediate container 1e52c0f743f7
+ ---> f45a7e1b892b
+Step 10/13 : EXPOSE 3000
+ ---> Running in 4b089bec43a3
+Removing intermediate container 4b089bec43a3
+ ---> 869ad7485c98
+Step 11/13 : COPY browser.js /app/node_modules/mdns/lib/browser.js
+ ---> 93b216059658
+Step 12/13 : ADD public /app/public
+ ---> c93dac8ea04c
+Step 13/13 : CMD openrc boot && rc-service dbus start && rc-service avahi-daemon start && npm run start
+ ---> Running in d63ff3494b2d
+Removing intermediate container d63ff3494b2d
+ ---> 7eb113255d6a
+Successfully built 7eb113255d6a
+Successfully tagged giejay/google-home-gateway:dev

@@ -1,14 +1,16 @@
-FROM node:8-alpine
+FROM node:8.16.0-jessie
 
 WORKDIR /app
 
-RUN  apk update && apk --no-cache add make g++ git openrc dbus avahi avahi-compat-libdns_sd avahi-dev
+RUN  apt-get update && apt-get install make g++ git openrc dbus  avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan -y
+
+RUN apt-get install libavahi-compat-libdnssd-dev -y
 
 COPY avahi-daemon.conf /etc/avahi
 
 RUN git clone https://github.com/giejay/google-home-notification-gateway .
 
-RUN apk add python
+RUN apt-get install python
 
 RUN npm install --only=production --build-from-source=bcrypt
 
